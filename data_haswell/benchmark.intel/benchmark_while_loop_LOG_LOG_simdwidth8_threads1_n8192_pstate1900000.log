@@ -1,0 +1,35 @@
+# version=reference
+# number of OMP threads : 1
+# timings per loop iteration:
+# mean		err		min		max
+3.72602e-07	5.48757e-10	3.70492e-07	3.74392e-07
+# output (thread 0): 113.7 111.191 108.979 109.403 109.769 110.887 112.351 112.55 
+# deviation (thread 0): 0
+# version=explicit_vectorization
+# number of OMP threads : 1
+# timings per loop iteration:
+# mean		err		min		max
+1.71548e-07	3.07425e-10	1.70898e-07	1.72964e-07
+# output (thread 0): 113.7 111.191 108.979 109.403 109.769 110.887 112.351 112.55 
+# deviation (thread 0): 2.89347e-07
+# version=enhanced_explicit_vectorization
+# number of OMP threads : 1
+# timings per loop iteration:
+# mean		err		min		max
+2.35794e-07	6.55684e-10	2.34111e-07	2.38419e-07
+# output (thread 0): 113.7 111.191 108.979 109.403 109.769 110.887 112.351 112.55 
+# deviation (thread 0): 2.89347e-07
+# version=manual_vectorization
+# number of OMP threads : 1
+# timings per loop iteration:
+# mean		err		min		max
+1.74807e-07	3.7974e-10	1.73837e-07	1.75904e-07
+# output (thread 0): 113.7 111.191 108.979 109.403 109.769 110.887 112.351 112.55 
+# deviation (thread 0): 6.22682e-07
+# version=simd_class_vectorization
+# number of OMP threads : 1
+# timings per loop iteration:
+# mean		err		min		max
+1.35508e-06	4.72915e-09	1.34483e-06	1.37585e-06
+# output (thread 0): 113.7 111.191 108.979 109.403 109.769 110.887 112.351 112.55 
+# deviation (thread 0): 2.90046e-07

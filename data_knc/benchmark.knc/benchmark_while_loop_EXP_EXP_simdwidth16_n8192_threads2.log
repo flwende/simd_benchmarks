@@ -1,0 +1,50 @@
+# version=reference
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+3.01014e-07	1.67315e-09	2.96277e-07	3.14321e-07
+# output (thread 1): 40825.5 5578.83 5306.76 971.687 9556.27 20691.3 11299.6 6091.45 
+# output (thread 0): 40825.5 5578.83 5306.76 971.687 9556.27 20691.3 11299.6 6091.45 
+# deviation (thread 1): 0
+# deviation (thread 0): 0
+
+# version=explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+1.14916e-07	7.9932e-10	1.12806e-07	1.20723e-07
+# output (thread 1): 40825.5 5578.83 5306.76 971.687 9556.27 20691.3 11299.6 6091.45 
+# output (thread 0): 40825.5 5578.83 5306.76 971.687 9556.27 20691.3 11299.6 6091.45 
+# deviation (thread 1): 2.30753e-09
+# deviation (thread 0): 2.30753e-09
+
+# version=enhanced_explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+1.75108e-07	9.49584e-10	1.70054e-07	1.80065e-07
+# output (thread 1): 40825.5 5578.83 5306.76 971.687 9556.27 20691.3 11299.6 6091.45 
+# output (thread 0): 40825.5 5578.83 5306.76 971.687 9556.27 20691.3 11299.6 6091.45 
+# deviation (thread 1): 2.30753e-09
+# deviation (thread 0): 2.30753e-09
+
+# version=manual_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+1.15644e-07	7.25419e-10	1.14378e-07	1.21072e-07
+# output (thread 1): 40825.5 5578.83 5306.76 971.687 9556.27 20691.3 11299.6 6091.45 
+# output (thread 0): 40825.5 5578.83 5306.76 971.687 9556.27 20691.3 11299.6 6091.45 
+# deviation (thread 1): 2.37403e-09
+# deviation (thread 0): 2.37403e-09
+
+# version=simd_class_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+2.26845e-07	1.33634e-09	2.21917e-07	2.33762e-07
+# output (thread 1): 40825.5 5578.83 5306.76 971.687 9556.27 20691.3 11299.6 6091.45 
+# output (thread 0): 40825.5 5578.83 5306.76 971.687 9556.27 20691.3 11299.6 6091.45 
+# deviation (thread 1): 2.88309e-09
+# deviation (thread 0): 2.88309e-09
+

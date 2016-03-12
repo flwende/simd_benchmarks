@@ -1,0 +1,50 @@
+# version=reference
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+1.14383e-07	1.3456e-10	1.13767e-07	1.14989e-07
+# output (thread 0): 84.6551 57.8295 48.8376 28.3958 17.5701 17.9262 23.1461 13.5206 
+# output (thread 1): 84.6551 57.8295 48.8376 28.3958 17.5701 17.9262 23.1461 13.5206 
+# deviation (thread 0): 0
+# deviation (thread 1): 0
+
+# version=explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+2.46461e-08	4.87044e-11	2.45345e-08	2.49129e-08
+# output (thread 1): 84.6551 57.8295 48.8376 28.3958 17.5701 17.9262 23.1461 13.5206 
+# output (thread 0): 84.6551 57.8295 48.8376 28.3958 17.5701 17.9262 23.1461 13.5206 
+# deviation (thread 1): 2.64134e-13
+# deviation (thread 0): 2.64134e-13
+
+# version=enhanced_explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+2.72e-08	7.302e-11	2.68337e-08	2.75904e-08
+# output (thread 1): 84.6551 57.8295 48.8376 28.3958 17.5701 17.9262 23.1461 13.5206 
+# output (thread 0): 84.6551 57.8295 48.8376 28.3958 17.5701 17.9262 23.1461 13.5206 
+# deviation (thread 1): 2.64134e-13
+# deviation (thread 0): 2.64134e-13
+
+# version=manual_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+2.82986e-08	6.5406e-11	2.79688e-08	2.85509e-08
+# output (thread 0): 84.6551 57.8295 48.8376 28.3958 17.5701 17.9262 23.1461 13.5206 
+# output (thread 1): 84.6551 57.8295 48.8376 28.3958 17.5701 17.9262 23.1461 13.5206 
+# deviation (thread 0): 2.64134e-13
+# deviation (thread 1): 2.64134e-13
+
+# version=simd_class_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+3.03795e-08	4.57141e-11	3.01516e-08	3.06463e-08
+# output (thread 1): 84.6551 57.8295 48.8376 28.3958 17.5701 17.9262 23.1461 13.5206 
+# output (thread 0): 84.6551 57.8295 48.8376 28.3958 17.5701 17.9262 23.1461 13.5206 
+# deviation (thread 1): 2.64134e-13
+# deviation (thread 0): 2.64134e-13
+

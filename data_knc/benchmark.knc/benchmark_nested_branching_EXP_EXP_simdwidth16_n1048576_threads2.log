@@ -1,0 +1,50 @@
+# version=reference
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+1.40308e-07	3.16185e-11	1.40191e-07	1.40486e-07
+# output (thread 0): -8.26057 -14.3 -9.17601 -11.8103 -9.12329 -16.5874 -2.31569 -6.91436 
+# output (thread 1): -8.26057 -14.3 -9.17601 -11.8103 -9.12329 -16.5874 -2.31569 -6.91436 
+# deviation (thread 0): 0
+# deviation (thread 1): 0
+
+# version=explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+7.157e-08	2.13973e-11	7.14397e-08	7.16764e-08
+# output (thread 1): -8.26057 -14.3 -9.17601 -11.8103 -9.12329 -16.5874 -2.31569 -6.91436 
+# output (thread 0): -8.26057 -14.3 -9.17601 -11.8103 -9.12329 -16.5874 -2.31569 -6.91436 
+# deviation (thread 1): 8.72348e-13
+# deviation (thread 0): 8.72348e-13
+
+# version=enhanced_explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+7.32752e-08	2.47874e-11	7.31611e-08	7.34101e-08
+# output (thread 0): -8.26057 -14.3 -9.17601 -11.8103 -9.12329 -16.5874 -2.31569 -6.91436 
+# output (thread 1): -8.26057 -14.3 -9.17601 -11.8103 -9.12329 -16.5874 -2.31569 -6.91436 
+# deviation (thread 0): 8.72348e-13
+# deviation (thread 1): 8.72348e-13
+
+# version=manual_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+6.24102e-08	2.31741e-11	6.22892e-08	6.2523e-08
+# output (thread 0): -8.26057 -14.3 -9.17601 -11.8103 -9.12329 -16.5874 -2.31569 -6.91436 
+# output (thread 1): -8.26057 -14.3 -9.17601 -11.8103 -9.12329 -16.5874 -2.31569 -6.91436 
+# deviation (thread 0): 8.72348e-13
+# deviation (thread 1): 8.72348e-13
+
+# version=simd_class_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+8.48247e-08	3.70285e-11	8.46453e-08	8.50105e-08
+# output (thread 1): -8.26057 -14.3 -9.17601 -11.8103 -9.12329 -16.5874 -2.31569 -6.91436 
+# output (thread 0): -8.26057 -14.3 -9.17601 -11.8103 -9.12329 -16.5874 -2.31569 -6.91436 
+# deviation (thread 1): 8.72348e-13
+# deviation (thread 0): 8.72348e-13
+

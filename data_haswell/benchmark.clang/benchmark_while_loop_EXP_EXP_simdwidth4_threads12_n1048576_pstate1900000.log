@@ -1,0 +1,125 @@
+# version=reference
+# number of OMP threads : 12
+# timings per loop iteration:
+# mean		err		min		max
+1.0091e-06	1.36311e-08	1.92969e-07	1.11911e-06
+# deviation (thread 8): 0
+# deviation (thread 11): 0
+# deviation (thread 10): 0
+# deviation (thread 9): 0
+# output (thread 4): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 4): 0
+# output (thread 7): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 7): 0
+# output (thread 6): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 6): 0
+# output (thread 5): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 5): 0
+# output (thread 3): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 3): 0
+# output (thread 2): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 2): 0
+# output (thread 1): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 1): 0
+# output (thread 0): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 0): 0
+# version=explicit_vectorization
+# number of OMP threads : 12
+# timings per loop iteration:
+# mean		err		min		max
+9.89047e-07	6.63664e-09	8.57465e-07	1.11765e-06
+# deviation (thread 8): 0
+# deviation (thread 9): 0
+# deviation (thread 10): 0
+# deviation (thread 11): 0
+# output (thread 4): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 4): 0
+# output (thread 7): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 7): 0
+# output (thread 6): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 6): 0
+# output (thread 5): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 5): 0
+# output (thread 3): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 3): 0
+# output (thread 2): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 2): 0
+# output (thread 1): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 1): 0
+# output (thread 0): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 0): 0
+# version=enhanced_explicit_vectorization
+# number of OMP threads : 12
+# timings per loop iteration:
+# mean		err		min		max
+8.79869e-07	7.30193e-09	7.61e-07	9.74266e-07
+# deviation (thread 8): 0
+# deviation (thread 11): 0
+# deviation (thread 10): 0
+# deviation (thread 9): 0
+# output (thread 4): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 4): 0
+# output (thread 6): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 6): 0
+# output (thread 7): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 7): 0
+# output (thread 5): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 5): 0
+# output (thread 3): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 3): 0
+# output (thread 2): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 2): 0
+# output (thread 1): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 1): 0
+# output (thread 0): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 0): 0
+# version=manual_vectorization
+# number of OMP threads : 12
+# timings per loop iteration:
+# mean		err		min		max
+1.12148e-06	7.47464e-09	9.25679e-07	1.26025e-06
+# deviation (thread 8): 7.39763e-09
+# deviation (thread 11): 7.39763e-09
+# deviation (thread 10): 7.39763e-09
+# deviation (thread 9): 7.39763e-09
+# output (thread 4): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 4): 7.39763e-09
+# output (thread 7): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 7): 7.39763e-09
+# output (thread 6): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 6): 7.39763e-09
+# output (thread 5): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 5): 7.39763e-09
+# output (thread 3): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 3): 7.39763e-09
+# output (thread 2): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 2): 7.39763e-09
+# output (thread 1): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 1): 7.39763e-09
+# output (thread 0): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 0): 7.39763e-09
+# version=simd_class_vectorization
+# number of OMP threads : 12
+# timings per loop iteration:
+# mean		err		min		max
+6.34244e-07	7.66105e-09	4.71621e-07	7.69068e-07
+# deviation (thread 8): 1.81836e-08
+# deviation (thread 11): 1.81836e-08
+# deviation (thread 10): 1.81836e-08
+# deviation (thread 9): 1.81836e-08
+# output (thread 4): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 4): 1.81836e-08
+# output (thread 7): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 7): 1.81836e-08
+# output (thread 6): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 6): 1.81836e-08
+# output (thread 5): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 5): 1.81836e-08
+# output (thread 3): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 3): 1.81836e-08
+# output (thread 2): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 2): 1.81836e-08
+# output (thread 1): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 1): 1.81836e-08
+# output (thread 0): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 0): 1.81836e-08

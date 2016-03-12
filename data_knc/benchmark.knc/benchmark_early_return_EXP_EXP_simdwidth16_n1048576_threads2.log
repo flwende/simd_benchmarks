@@ -1,0 +1,50 @@
+# version=reference
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+9.06159e-08	5.12692e-11	9.04465e-08	9.09242e-08
+# output (thread 1): 22.8788 4.04102 4.91864 3.1549 6.90139 4.03962 29.8355 16.9814 
+# output (thread 0): 22.8788 4.04102 4.91864 3.1549 6.90139 4.03962 29.8355 16.9814 
+# deviation (thread 1): 0
+# deviation (thread 0): 0
+
+# version=explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+3.07811e-08	1.43022e-11	3.07111e-08	3.08428e-08
+# output (thread 1): 22.8788 4.04102 4.91864 3.1549 6.90139 4.03962 29.8355 16.9814 
+# output (thread 0): 22.8788 4.04102 4.91864 3.1549 6.90139 4.03962 29.8355 16.9814 
+# deviation (thread 1): 1.68029e-12
+# deviation (thread 0): 1.68029e-12
+
+# version=enhanced_explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+4.12297e-08	2.07999e-11	4.11339e-08	4.13484e-08
+# output (thread 1): 22.8788 4.04102 4.91864 3.1549 6.90139 4.03962 29.8355 16.9814 
+# output (thread 0): 22.8788 4.04102 4.91864 3.1549 6.90139 4.03962 29.8355 16.9814 
+# deviation (thread 1): 1.68029e-12
+# deviation (thread 0): 1.68029e-12
+
+# version=manual_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+3.14966e-08	1.8503e-11	3.14074e-08	3.15933e-08
+# output (thread 1): 22.8788 4.04102 4.91864 3.1549 6.90139 4.03962 29.8355 16.9814 
+# output (thread 0): 22.8788 4.04102 4.91864 3.1549 6.90139 4.03962 29.8355 16.9814 
+# deviation (thread 1): 1.68029e-12
+# deviation (thread 0): 1.68029e-12
+
+# version=simd_class_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+3.61167e-08	1.37433e-11	3.60299e-08	3.6192e-08
+# output (thread 0): 22.8788 4.04102 4.91864 3.1549 6.90139 4.03962 29.8355 16.9814 
+# output (thread 1): 22.8788 4.04102 4.91864 3.1549 6.90139 4.03962 29.8355 16.9814 
+# deviation (thread 0): 1.68029e-12
+# deviation (thread 1): 1.68029e-12
+

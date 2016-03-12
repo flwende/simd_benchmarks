@@ -1,0 +1,50 @@
+# version=reference
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+4.43703e-07	3.99097e-11	4.43511e-07	4.43928e-07
+# output (thread 0): 112.582 114.774 119.088 118.072 114.229 110.89 115.087 116.939 
+# output (thread 1): 112.582 114.774 119.088 118.072 114.229 110.89 115.087 116.939 
+# deviation (thread 0): 0
+# deviation (thread 1): 0
+
+# version=explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+1.20874e-07	7.08584e-12	1.20823e-07	1.20907e-07
+# output (thread 1): 112.582 114.774 119.088 118.072 114.229 110.89 115.087 116.939 
+# output (thread 0): 112.582 114.774 119.088 118.072 114.229 110.89 115.087 116.939 
+# deviation (thread 1): 3.58708e-12
+# deviation (thread 0): 3.58708e-12
+
+# version=enhanced_explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+9.62504e-08	1.65487e-11	9.61732e-08	9.6343e-08
+# output (thread 1): 112.582 114.774 119.088 118.072 114.229 110.89 115.087 116.939 
+# output (thread 0): 112.582 114.774 119.088 118.072 114.229 110.89 115.087 116.939 
+# deviation (thread 1): 3.58708e-12
+# deviation (thread 0): 3.58708e-12
+
+# version=manual_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+1.32228e-07	1.6936e-11	1.32155e-07	1.32319e-07
+# output (thread 0): 112.582 114.774 119.088 118.072 114.229 110.89 115.087 116.939 
+# output (thread 1): 112.582 114.774 119.088 118.072 114.229 110.89 115.087 116.939 
+# deviation (thread 0): 6.22669e-12
+# deviation (thread 1): 6.22669e-12
+
+# version=simd_class_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+2.16831e-07	2.98983e-11	2.16714e-07	2.16981e-07
+# output (thread 1): 112.582 114.774 119.088 118.072 114.229 110.89 115.087 116.939 
+# output (thread 0): 112.582 114.774 119.088 118.072 114.229 110.89 115.087 116.939 
+# deviation (thread 1): 4.99689e-12
+# deviation (thread 0): 4.99689e-12
+

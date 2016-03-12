@@ -1,0 +1,50 @@
+# version=reference
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+9.15801e-08	9.75405e-11	9.10659e-08	9.20263e-08
+# output (thread 0): 4.49783 12.6734 7.58283 7.93966 4.95108 10.9108 14.5695 9.51433 
+# output (thread 1): 4.49783 12.6734 7.58283 7.93966 4.95108 10.9108 14.5695 9.51433 
+# deviation (thread 0): 0
+# deviation (thread 1): 0
+
+# version=explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+2.85897e-08	5.96594e-11	2.82016e-08	2.89292e-08
+# output (thread 1): 4.49783 12.6734 7.58283 7.93966 4.95108 10.9108 14.5695 9.51433 
+# output (thread 0): 4.49783 12.6734 7.58283 7.93966 4.95108 10.9108 14.5695 9.51433 
+# deviation (thread 1): 1.42191e-13
+# deviation (thread 0): 1.42191e-13
+
+# version=enhanced_explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+3.23562e-08	8.25613e-11	3.19851e-08	3.28291e-08
+# output (thread 1): 4.49783 12.6734 7.58283 7.93966 4.95108 10.9108 14.5695 9.51433 
+# output (thread 0): 4.49783 12.6734 7.58283 7.93966 4.95108 10.9108 14.5695 9.51433 
+# deviation (thread 1): 1.42191e-13
+# deviation (thread 0): 1.42191e-13
+
+# version=manual_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+3.22131e-08	8.19143e-11	3.17523e-08	3.27127e-08
+# output (thread 0): 4.49783 12.6734 7.58283 7.93966 4.95108 10.9108 14.5695 9.51433 
+# output (thread 1): 4.49783 12.6734 7.58283 7.93966 4.95108 10.9108 14.5695 9.51433 
+# deviation (thread 0): 1.42191e-13
+# deviation (thread 1): 1.42191e-13
+
+# version=simd_class_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+3.76507e-08	8.86501e-10	3.61179e-08	4.42087e-08
+# output (thread 0): 4.49783 12.6734 7.58283 7.93966 4.95108 10.9108 14.5695 9.51433 
+# output (thread 1): 4.49783 12.6734 7.58283 7.93966 4.95108 10.9108 14.5695 9.51433 
+# deviation (thread 0): 1.42191e-13
+# deviation (thread 1): 1.42191e-13
+

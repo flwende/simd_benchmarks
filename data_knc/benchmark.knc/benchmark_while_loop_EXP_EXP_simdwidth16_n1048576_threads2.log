@@ -1,0 +1,50 @@
+# version=reference
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+2.99739e-07	5.16991e-11	2.99481e-07	3.00028e-07
+# output (thread 1): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# output (thread 0): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 1): 0
+# deviation (thread 0): 0
+
+# version=explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+1.14264e-07	3.88791e-11	1.14106e-07	1.1448e-07
+# output (thread 1): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# output (thread 0): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 1): 2.65185e-08
+# deviation (thread 0): 2.65185e-08
+
+# version=enhanced_explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+1.74482e-07	3.82559e-11	1.74244e-07	1.74609e-07
+# output (thread 0): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# output (thread 1): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 0): 2.65185e-08
+# deviation (thread 1): 2.65185e-08
+
+# version=manual_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+1.15686e-07	2.25971e-11	1.15561e-07	1.15792e-07
+# output (thread 1): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# output (thread 0): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 1): 2.69816e-08
+# deviation (thread 0): 2.69816e-08
+
+# version=simd_class_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+2.2755e-07	1.02346e-10	2.2701e-07	2.28124e-07
+# output (thread 1): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# output (thread 0): 34537.7 8331.53 2248.1 18111.7 4776.01 40135.8 26491.9 8087.47 
+# deviation (thread 1): 3.2571e-08
+# deviation (thread 0): 3.2571e-08
+

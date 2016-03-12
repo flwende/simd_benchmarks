@@ -1,0 +1,50 @@
+# version=reference
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+1.4031e-07	8.37539e-10	1.38651e-07	1.4648e-07
+# output (thread 1): -19.0912 -12.0371 -9.92641 -11.5433 -10.1284 -3.50215 -1.14169 -12.871 
+# output (thread 0): -19.0912 -12.0371 -9.92641 -11.5433 -10.1284 -3.50215 -1.14169 -12.871 
+# deviation (thread 1): 0
+# deviation (thread 0): 0
+
+# version=explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+6.57941e-08	1.41101e-10	6.51926e-08	6.64149e-08
+# output (thread 1): -19.0912 -12.0371 -9.92641 -11.5433 -10.1284 -3.50215 -1.14169 -12.871 
+# output (thread 0): -19.0912 -12.0371 -9.92641 -11.5433 -10.1284 -3.50215 -1.14169 -12.871 
+# deviation (thread 1): 7.70165e-14
+# deviation (thread 0): 7.70165e-14
+
+# version=enhanced_explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+7.64752e-08	9.55465e-11	7.59319e-08	7.68923e-08
+# output (thread 0): -19.0912 -12.0371 -9.92641 -11.5433 -10.1284 -3.50215 -1.14169 -12.871 
+# output (thread 1): -19.0912 -12.0371 -9.92641 -11.5433 -10.1284 -3.50215 -1.14169 -12.871 
+# deviation (thread 0): 7.70165e-14
+# deviation (thread 1): 7.70165e-14
+
+# version=manual_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+6.24471e-08	1.13135e-10	6.17583e-08	6.28643e-08
+# output (thread 0): -19.0912 -12.0371 -9.92641 -11.5433 -10.1284 -3.50215 -1.14169 -12.871 
+# output (thread 1): -19.0912 -12.0371 -9.92641 -11.5433 -10.1284 -3.50215 -1.14169 -12.871 
+# deviation (thread 0): 7.70165e-14
+# deviation (thread 1): 7.70165e-14
+
+# version=simd_class_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+8.50365e-08	8.66496e-10	8.33825e-08	9.14442e-08
+# output (thread 1): -19.0912 -12.0371 -9.92641 -11.5433 -10.1284 -3.50215 -1.14169 -12.871 
+# output (thread 0): -19.0912 -12.0371 -9.92641 -11.5433 -10.1284 -3.50215 -1.14169 -12.871 
+# deviation (thread 1): 7.70165e-14
+# deviation (thread 0): 7.70165e-14
+

@@ -1,0 +1,125 @@
+# version=reference
+# number of OMP threads : 12
+# timings per loop iteration:
+# mean		err		min		max
+1.58581e-08	2.81075e-12	1.57929e-08	1.59264e-08
+# output (thread 4): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 7): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 0): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 2): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 3): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 1): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 5): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 6): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# deviation (thread 7): 0
+# deviation (thread 4): 0
+# deviation (thread 6): 0
+# deviation (thread 2): 0
+# deviation (thread 5): 0
+# deviation (thread 11): 0
+# deviation (thread 8): 0
+# deviation (thread 0): 0
+# deviation (thread 3): 0
+# deviation (thread 10): 0
+# deviation (thread 1): 0
+# deviation (thread 9): 0
+# version=explicit_vectorization
+# number of OMP threads : 12
+# timings per loop iteration:
+# mean		err		min		max
+4.05585e-09	1.00312e-11	3.86808e-09	4.2437e-09
+# output (thread 0): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 6): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 4): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 3): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 7): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 1): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 2): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 5): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# deviation (thread 0): 0
+# deviation (thread 6): 0
+# deviation (thread 3): 0
+# deviation (thread 2): 0
+# deviation (thread 9): 0
+# deviation (thread 11): 0
+# deviation (thread 10): 0
+# deviation (thread 1): 0
+# deviation (thread 5): 0
+# deviation (thread 8): 0
+# deviation (thread 4): 0
+# deviation (thread 7): 0
+# version=enhanced_explicit_vectorization
+# number of OMP threads : 12
+# timings per loop iteration:
+# mean		err		min		max
+4.0412e-09	1.08918e-11	3.83102e-09	4.21142e-09
+# output (thread 2): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 0): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 4): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 7): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 6): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 5): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 3): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 1): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# deviation (thread 3): 0
+# deviation (thread 2): 0
+# deviation (thread 6): 0
+# deviation (thread 4): 0
+# deviation (thread 5): 0
+# deviation (thread 10): 0
+# deviation (thread 1): 0
+# deviation (thread 8): 0
+# deviation (thread 7): 0
+# deviation (thread 9): 0
+# deviation (thread 0): 0
+# deviation (thread 11): 0
+# version=manual_vectorization
+# number of OMP threads : 12
+# timings per loop iteration:
+# mean		err		min		max
+4.58388e-09	7.99601e-12	4.43379e-09	4.73005e-09
+# output (thread 0): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 5): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 3): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 1): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 6): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 2): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 7): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 4): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# deviation (thread 7): 0
+# deviation (thread 8): 0
+# deviation (thread 4): 0
+# deviation (thread 5): 0
+# deviation (thread 2): 0
+# deviation (thread 10): 0
+# deviation (thread 0): 0
+# deviation (thread 1): 0
+# deviation (thread 11): 0
+# deviation (thread 9): 0
+# deviation (thread 3): 0
+# deviation (thread 6): 0
+# version=simd_class_vectorization
+# number of OMP threads : 12
+# timings per loop iteration:
+# mean		err		min		max
+1.04256e-08	4.24936e-12	1.03453e-08	1.05001e-08
+# output (thread 0): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 5): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 4): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 6): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 1): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 2): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 7): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# output (thread 3): 10 10 9.77201 10 9.88546 10 10.4767 10.1585 
+# deviation (thread 8): 0
+# deviation (thread 7): 0
+# deviation (thread 3): 0
+# deviation (thread 1): 0
+# deviation (thread 9): 0
+# deviation (thread 2): 0
+# deviation (thread 6): 0
+# deviation (thread 4): 0
+# deviation (thread 0): 0
+# deviation (thread 10): 0
+# deviation (thread 5): 0
+# deviation (thread 11): 0
