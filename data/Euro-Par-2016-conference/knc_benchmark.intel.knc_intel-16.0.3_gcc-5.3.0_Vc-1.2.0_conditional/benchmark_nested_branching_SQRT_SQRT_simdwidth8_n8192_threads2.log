@@ -1,0 +1,50 @@
+# version=reference
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+7.50297e-08	9.27747e-10	7.22648e-08	8.16653e-08
+# output (thread 0): -2.55893 -0.914531 -1.54806 -0.773639 0.622276 -10.8745 -0.451596 -2.26128 
+# output (thread 1): -2.55893 -0.914531 -1.54806 -0.773639 0.622276 -10.8745 -0.451596 -2.26128 
+# max. abs. rel. error (thread 0): 0
+# max. abs. rel. error (thread 1): 0
+
+# version=explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+3.84656e-08	7.23025e-11	3.79514e-08	3.8679e-08
+# output (thread 0): -2.55893 -0.914531 -1.54806 -0.773639 0.622276 -10.8745 -0.451596 -2.26128 
+# output (thread 1): -2.55893 -0.914531 -1.54806 -0.773639 0.622276 -10.8745 -0.451596 -2.26128 
+# max. abs. rel. error (thread 0): 0
+# max. abs. rel. error (thread 1): 0
+
+# version=enhanced_explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+3.84607e-08	4.04514e-11	3.82133e-08	3.85917e-08
+# output (thread 0): -2.55893 -0.914531 -1.54806 -0.773639 0.622276 -10.8745 -0.451596 -2.26128 
+# output (thread 1): -2.55893 -0.914531 -1.54806 -0.773639 0.622276 -10.8745 -0.451596 -2.26128 
+# max. abs. rel. error (thread 0): 0
+# max. abs. rel. error (thread 1): 0
+
+# version=manual_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+3.54776e-08	8.93456e-11	3.50119e-08	3.57686e-08
+# output (thread 1): -2.55893 -0.914531 -1.54806 -0.773639 0.622276 -10.8745 -0.451596 -2.26128 
+# output (thread 0): -2.55893 -0.914531 -1.54806 -0.773639 0.622276 -10.8745 -0.451596 -2.26128 
+# max. abs. rel. error (thread 1): 0
+# max. abs. rel. error (thread 0): 0
+
+# version=simd_class_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+6.58232e-08	2.09086e-09	6.07688e-08	7.59319e-08
+# output (thread 0): -2.55893 -0.914531 -1.54806 -0.773639 0.622276 -10.8745 -0.451596 -2.26128 
+# output (thread 1): -2.55893 -0.914531 -1.54806 -0.773639 0.622276 -10.8745 -0.451596 -2.26128 
+# max. abs. rel. error (thread 0): 0
+# max. abs. rel. error (thread 1): 0
+

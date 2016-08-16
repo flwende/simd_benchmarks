@@ -1,0 +1,125 @@
+# version=reference
+# number of OMP threads : 12
+# timings per loop iteration:
+# mean		err		min		max
+1.8295e-08	2.976e-11	1.78115e-08	1.9063e-08
+# output (thread 0): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 0): 0
+# output (thread 1): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 1): 0
+# output (thread 2): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 2): 0
+# output (thread 3): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 3): 0
+# output (thread 4): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 4): 0
+# output (thread 7): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 7): 0
+# output (thread 5): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 5): 0
+# output (thread 6): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 6): 0
+# max. abs. rel. error (thread 8): 0
+# max. abs. rel. error (thread 9): 0
+# max. abs. rel. error (thread 10): 0
+# max. abs. rel. error (thread 11): 0
+# version=explicit_vectorization
+# number of OMP threads : 12
+# timings per loop iteration:
+# mean		err		min		max
+2.80864e-08	5.4407e-11	2.7474e-08	3.08792e-08
+# output (thread 0): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 0): 0
+# output (thread 2): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 2): 0
+# output (thread 1): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 1): 0
+# output (thread 3): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 3): 0
+# output (thread 4): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 4): 0
+# output (thread 7): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 7): 0
+# output (thread 6): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 6): 0
+# output (thread 5): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 5): 0
+# max. abs. rel. error (thread 8): 0
+# max. abs. rel. error (thread 11): 0
+# max. abs. rel. error (thread 9): 0
+# max. abs. rel. error (thread 10): 0
+# version=enhanced_explicit_vectorization
+# number of OMP threads : 12
+# timings per loop iteration:
+# mean		err		min		max
+1.42609e-08	3.19844e-11	1.37952e-08	1.57452e-08
+# output (thread 0): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 0): 0
+# output (thread 2): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 2): 0
+# output (thread 1): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 1): 0
+# output (thread 3): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 3): 0
+# output (thread 4): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 4): 0
+# output (thread 5): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 5): 0
+# output (thread 7): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 7): 0
+# output (thread 6): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 6): 0
+# max. abs. rel. error (thread 8): 0
+# max. abs. rel. error (thread 9): 0
+# max. abs. rel. error (thread 11): 0
+# max. abs. rel. error (thread 10): 0
+# version=manual_vectorization
+# number of OMP threads : 12
+# timings per loop iteration:
+# mean		err		min		max
+2.71381e-08	6.50831e-11	2.66009e-08	3.05008e-08
+# output (thread 0): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 0): 0
+# output (thread 3): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 3): 0
+# output (thread 2): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 2): 0
+# output (thread 1): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 1): 0
+# output (thread 4): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 4): 0
+# output (thread 6): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 6): 0
+# output (thread 7): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 7): 0
+# output (thread 5): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 5): 0
+# max. abs. rel. error (thread 8): 0
+# max. abs. rel. error (thread 9): 0
+# max. abs. rel. error (thread 11): 0
+# max. abs. rel. error (thread 10): 0
+# version=simd_class_vectorization
+# number of OMP threads : 12
+# timings per loop iteration:
+# mean		err		min		max
+7.85763e-09	2.44606e-11	7.68341e-09	8.78936e-09
+# output (thread 0): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 0): 1.77243e-16
+# output (thread 1): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 1): 1.77243e-16
+# output (thread 3): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 3): 1.77243e-16
+# output (thread 2): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 2): 1.77243e-16
+# output (thread 4): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 4): 1.77243e-16
+# output (thread 5): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 5): 1.77243e-16
+# output (thread 6): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 6): 1.77243e-16
+# output (thread 7): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 7): 1.77243e-16
+# max. abs. rel. error (thread 8): 1.77243e-16
+# max. abs. rel. error (thread 9): 1.77243e-16
+# max. abs. rel. error (thread 10): 1.77243e-16
+# max. abs. rel. error (thread 11): 1.77243e-16

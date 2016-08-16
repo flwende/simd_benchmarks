@@ -1,0 +1,24 @@
+CXX = clang++
+LD = clang++
+CXXFLAGS = -O3 -std=c++11 -ftree-vectorize -ffast-math -fopenmp=libomp -I$(CURDIR)/include
+LDFLAGS = -fopenmp=libomp -lm
+
+FUNC = SQRT_SQRT
+SIMDWIDTH = 8
+
+CXXFLAGS += -mavx512f -mfma -D__AVX512F__
+CXXFLAGS += -D__CLANG_COMPILER__
+CXXFLAGS += -DBENCHMARK_FUNC_$(FUNC)
+CXXFLAGS += -DSIMD_WIDTH_LOGICAL_REAL64=$(SIMDWIDTH)
+CXXFLAGS += -DDEBUG
+
+BIN_DIR = $(CURDIR)/bin.clang.knl
+
+# export all variables for subsequent make calls
+export
+
+all : 
+	make -C src -f makefile_global
+
+clean :
+	make -C src -f makefile_global clean

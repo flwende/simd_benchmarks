@@ -1,0 +1,45 @@
+# version=reference
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+5.89377e-08	4.94083e-10	5.59085e-08	6.14091e-08
+# output (thread 0): -12.0978 -8.07115 -6.35096 -9.713 -1.65986 -22.9563 -5.1344 -8.37897 
+# output (thread 1): -12.0978 -8.07115 -6.35096 -9.713 -1.65986 -22.9563 -5.1344 -8.37897 
+# max. abs. rel. error (thread 0): 0
+# max. abs. rel. error (thread 1): 0
+# version=explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+6.73754e-08	3.46108e-10	6.59202e-08	6.92089e-08
+# output (thread 0): -12.0978 -8.07115 -6.35096 -9.713 -1.65986 -22.9563 -5.1344 -8.37897 
+# output (thread 1): -12.0978 -8.07115 -6.35096 -9.713 -1.65986 -22.9563 -5.1344 -8.37897 
+# max. abs. rel. error (thread 0): 4.26067e-11
+# max. abs. rel. error (thread 1): 4.26067e-11
+# version=enhanced_explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+5.54671e-08	4.57442e-10	5.37257e-08	5.83241e-08
+# output (thread 0): -12.0978 -8.07115 -6.35096 -9.713 -1.65986 -22.9563 -5.1344 -8.37897 
+# output (thread 1): -12.0978 -8.07115 -6.35096 -9.713 -1.65986 -22.9563 -5.1344 -8.37897 
+# max. abs. rel. error (thread 0): 4.26067e-11
+# max. abs. rel. error (thread 1): 4.26067e-11
+# version=manual_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+2.79324e-08	3.70468e-10	2.68337e-08	3.00352e-08
+# output (thread 0): -12.0978 -8.07115 -6.35096 -9.713 -1.65986 -22.9563 -5.1344 -8.37897 
+# output (thread 1): -12.0978 -8.07115 -6.35096 -9.713 -1.65986 -22.9563 -5.1344 -8.37897 
+# max. abs. rel. error (thread 0): 2.59161e-13
+# max. abs. rel. error (thread 1): 2.59161e-13
+# version=simd_class_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+8.01617e-08	3.30271e-10	7.88423e-08	8.22765e-08
+# output (thread 0): -12.0978 -8.07115 -6.35096 -9.713 0 0 0 0 
+# output (thread 1): -12.0978 -8.07115 -6.35096 -9.713 0 0 0 0 
+# max. abs. rel. error (thread 0): 1
+# max. abs. rel. error (thread 1): 1

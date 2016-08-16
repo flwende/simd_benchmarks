@@ -1,0 +1,53 @@
+# to be called by another makefile
+# e.g. make -C simple -f ../makefile_local.gnu PREFIX=simple clean
+
+ifeq ($(VC_AVAILABLE), yes)
+all : $(PREFIX)_simd_class_vectorization.x $(PREFIX)_reference.x $(PREFIX)_explicit_vectorization.x $(PREFIX)_enhanced_explicit_vectorization.x $(PREFIX)_manual_vectorization.x
+	rm -f benchmark.o
+else
+all : $(PREFIX)_reference.x $(PREFIX)_explicit_vectorization.x $(PREFIX)_enhanced_explicit_vectorization.x $(PREFIX)_manual_vectorization.x
+	rm -f benchmark.o
+endif
+	
+$(PREFIX)_reference.x : kernel_reference.o
+	$(CXX) $(CXXFLAGS) -c $(SRC_DIR)/common/benchmark.cpp
+	$(LD) -o $@ $? benchmark.o $(LDFLAGS)
+
+$(PREFIX)_explicit_vectorization.x : kernel_explicit_vectorization.o kernel_reference.o
+	$(CXX) $(CXXFLAGS) -DEXPLICIT_VECTORIZATION -c $(SRC_DIR)/common/benchmark.cpp
+	$(LD) -o $@ $? benchmark.o $(LDFLAGS)
+
+$(PREFIX)_enhanced_explicit_vectorization.x : kernel_enhanced_explicit_vectorization.o kernel_reference.o
+	$(CXX) $(CXXFLAGS) -DENHANCED_EXPLICIT_VECTORIZATION -c $(SRC_DIR)/common/benchmark.cpp
+	$(LD) -o $@ $? benchmark.o $(LDFLAGS)
+
+$(PREFIX)_manual_vectorization.x : kernel_manual_vectorization.o kernel_reference.o
+	$(CXX) $(CXXFLAGS) -DMANUAL_VECTORIZATION -c $(SRC_DIR)/common/benchmark.cpp
+	$(LD) -o $@ $? benchmark.o $(LDFLAGS)
+
+$(PREFIX)_simd_class_vectorization.x : kernel_simd_class_vectorization.o kernel_reference.o
+	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_VECTORIZATION -I$(VC_ROOT)/include -c $(SRC_DIR)/common/benchmark.cpp
+ifeq ($(PLATFORM), mic)
+	$(LD) -o $@ $? benchmark.o $(LDFLAGS) $(VC_ROOT)/lib/libVc_MIC.a
+else
+	$(LD) -o $@ $? benchmark.o $(LDFLAGS) $(VC_ROOT)/lib/libVc.a
+endif
+
+
+kernel_reference.o : kernel_reference.cpp
+	$(CXX) $(CXXFLAGS) -c $<
+
+kernel_explicit_vectorization.o : kernel_explicit_vectorization.cpp
+	$(CXX) $(CXXFLAGS) -DEXPLICIT_VECTORIZATION -c $<
+
+kernel_enhanced_explicit_vectorization.o : kernel_enhanced_explicit_vectorization.cpp
+	$(CXX) $(CXXFLAGS) -DENHANCED_EXPLICIT_VECTORIZATION -c $<
+
+kernel_manual_vectorization.o : kernel_manual_vectorization.cpp
+	$(CXX) $(CXXFLAGS) -DMANUAL_VECTORIZATION -c $<
+
+kernel_simd_class_vectorization.o : kernel_simd_class_vectorization.cpp
+	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_VECTORIZATION -I$(VC_ROOT)/include -c $<
+
+clean :
+	rm -f *.o *.x

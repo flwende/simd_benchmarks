@@ -1,0 +1,50 @@
+# version=reference
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+6.46323e-08	1.01016e-09	6.138e-08	7.19156e-08
+# output (thread 1): 4.94946 10.2732 9.59746 4.49329 16.6005 0 16.2387 12.864 
+# output (thread 0): 4.94946 10.2732 9.59746 4.49329 16.6005 0 16.2387 12.864 
+# max. abs. rel. error (thread 1): 0
+# max. abs. rel. error (thread 0): 0
+
+# version=explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+3.56958e-08	9.43412e-11	3.51574e-08	3.6147e-08
+# output (thread 0): 4.94946 10.2732 9.59746 4.49329 16.6005 0 16.2387 12.864 
+# output (thread 1): 4.94946 10.2732 9.59746 4.49329 16.6005 0 16.2387 12.864 
+# max. abs. rel. error (thread 0): 5.47007e-16
+# max. abs. rel. error (thread 1): 5.47007e-16
+
+# version=enhanced_explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+3.621e-08	1.23208e-10	3.57686e-08	3.68454e-08
+# output (thread 1): 4.94946 10.2732 9.59746 4.49329 16.6005 0 16.2387 12.864 
+# output (thread 0): 4.94946 10.2732 9.59746 4.49329 16.6005 0 16.2387 12.864 
+# max. abs. rel. error (thread 1): 5.47007e-16
+# max. abs. rel. error (thread 0): 5.47007e-16
+
+# version=manual_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+3.14079e-08	8.64984e-10	2.97732e-08	3.77186e-08
+# output (thread 0): 4.94946 10.2732 9.59746 4.49329 16.6005 0 16.2387 12.864 
+# output (thread 1): 4.94946 10.2732 9.59746 4.49329 16.6005 0 16.2387 12.864 
+# max. abs. rel. error (thread 0): 5.47007e-16
+# max. abs. rel. error (thread 1): 5.47007e-16
+
+# version=simd_class_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+3.97389e-08	6.71607e-11	3.94357e-08	4.00469e-08
+# output (thread 0): 4.94946 10.2732 9.59746 4.49329 16.6005 0 16.2387 12.864 
+# output (thread 1): 4.94946 10.2732 9.59746 4.49329 16.6005 0 16.2387 12.864 
+# max. abs. rel. error (thread 0): 5.47007e-16
+# max. abs. rel. error (thread 1): 5.47007e-16
+

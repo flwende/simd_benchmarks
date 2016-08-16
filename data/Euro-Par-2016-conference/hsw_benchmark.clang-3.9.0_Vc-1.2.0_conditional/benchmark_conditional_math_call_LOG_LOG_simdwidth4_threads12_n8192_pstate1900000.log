@@ -1,0 +1,125 @@
+# version=reference
+# number of OMP threads : 12
+# timings per loop iteration:
+# mean		err		min		max
+1.1283e-08	2.37759e-11	1.09721e-08	1.21945e-08
+# output (thread 0): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 0): 0
+# output (thread 2): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 2): 0
+# output (thread 3): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 3): 0
+# output (thread 4): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 4): 0
+# output (thread 7): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 7): 0
+# output (thread 6): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 6): 0
+# output (thread 5): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 5): 0
+# output (thread 1): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 1): 0
+# max. abs. rel. error (thread 8): 0
+# max. abs. rel. error (thread 9): 0
+# max. abs. rel. error (thread 10): 0
+# max. abs. rel. error (thread 11): 0
+# version=explicit_vectorization
+# number of OMP threads : 12
+# timings per loop iteration:
+# mean		err		min		max
+1.90149e-08	4.72156e-11	1.85682e-08	2.09839e-08
+# output (thread 0): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 0): 0
+# output (thread 2): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 2): 0
+# output (thread 1): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 1): 0
+# output (thread 3): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 3): 0
+# max. abs. rel. error (thread 8): 0
+# max. abs. rel. error (thread 9): 0
+# max. abs. rel. error (thread 10): 0
+# max. abs. rel. error (thread 11): 0
+# output (thread 4): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 4): 0
+# output (thread 7): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 7): 0
+# output (thread 6): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 6): 0
+# output (thread 5): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 5): 0
+# version=enhanced_explicit_vectorization
+# number of OMP threads : 12
+# timings per loop iteration:
+# mean		err		min		max
+2.06071e-08	6.08325e-11	1.97615e-08	2.35741e-08
+# output (thread 0): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 0): 0
+# output (thread 1): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 1): 0
+# output (thread 3): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 3): 0
+# output (thread 2): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 2): 0
+# output (thread 4): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 4): 0
+# output (thread 5): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 5): 0
+# output (thread 6): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 6): 0
+# output (thread 7): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 7): 0
+# max. abs. rel. error (thread 8): 0
+# max. abs. rel. error (thread 10): 0
+# max. abs. rel. error (thread 9): 0
+# max. abs. rel. error (thread 11): 0
+# version=manual_vectorization
+# number of OMP threads : 12
+# timings per loop iteration:
+# mean		err		min		max
+3.47629e-09	1.53054e-11	3.28873e-09	4.13274e-09
+# output (thread 0): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 0): 0
+# output (thread 3): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 3): 0
+# output (thread 2): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 2): 0
+# output (thread 1): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 1): 0
+# output (thread 4): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 4): 0
+# output (thread 6): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 6): 0
+# output (thread 5): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 5): 0
+# output (thread 7): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 7): 0
+# max. abs. rel. error (thread 8): 0
+# max. abs. rel. error (thread 11): 0
+# max. abs. rel. error (thread 9): 0
+# max. abs. rel. error (thread 10): 0
+# version=simd_class_vectorization
+# number of OMP threads : 12
+# timings per loop iteration:
+# mean		err		min		max
+5.26901e-09	1.59578e-11	5.12227e-09	6.1118e-09
+# output (thread 0): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 0): 0
+# output (thread 1): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 1): 0
+# output (thread 2): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 2): 0
+# output (thread 3): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 3): 0
+# output (thread 4): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 4): 0
+# output (thread 5): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 5): 0
+# output (thread 6): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 6): 0
+# output (thread 7): 9.33357 10 9 10 9.09651 10 10.1994 9.12936 
+# max. abs. rel. error (thread 7): 0
+# max. abs. rel. error (thread 8): 0
+# max. abs. rel. error (thread 10): 0
+# max. abs. rel. error (thread 9): 0
+# max. abs. rel. error (thread 11): 0

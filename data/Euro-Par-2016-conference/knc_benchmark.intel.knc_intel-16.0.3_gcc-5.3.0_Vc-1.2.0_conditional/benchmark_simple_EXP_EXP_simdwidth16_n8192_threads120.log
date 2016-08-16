@@ -1,0 +1,670 @@
+# version=reference
+# number of OMP threads : 120
+# timings per loop iteration:
+# mean		err		min		max
+7.43787e-08	4.87604e-11	7.17991e-08	8.07049e-08
+# output (thread 0): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 60): 0
+# max. abs. rel. error (thread 99): 0
+# max. abs. rel. error (thread 39): 0
+# max. abs. rel. error (thread 95): 0
+# max. abs. rel. error (thread 11): 0
+# max. abs. rel. error (thread 37): 0
+# max. abs. rel. error (thread 85): 0
+# max. abs. rel. error (thread 47): 0
+# max. abs. rel. error (thread 104): 0
+# max. abs. rel. error (thread 20): 0
+# max. abs. rel. error (thread 44): 0
+# max. abs. rel. error (thread 83): 0
+# max. abs. rel. error (thread 78): 0
+# max. abs. rel. error (thread 66): 0
+# max. abs. rel. error (thread 22): 0
+# max. abs. rel. error (thread 80): 0
+# max. abs. rel. error (thread 63): 0
+# max. abs. rel. error (thread 98): 0
+# max. abs. rel. error (thread 61): 0
+# max. abs. rel. error (thread 109): 0
+# max. abs. rel. error (thread 49): 0
+# max. abs. rel. error (thread 19): 0
+# max. abs. rel. error (thread 28): 0
+# max. abs. rel. error (thread 68): 0
+# max. abs. rel. error (thread 107): 0
+# max. abs. rel. error (thread 24): 0
+# max. abs. rel. error (thread 23): 0
+# max. abs. rel. error (thread 21): 0
+# max. abs. rel. error (thread 119): 0
+# max. abs. rel. error (thread 57): 0
+# max. abs. rel. error (thread 65): 0
+# max. abs. rel. error (thread 74): 0
+# max. abs. rel. error (thread 96): 0
+# max. abs. rel. error (thread 97): 0
+# max. abs. rel. error (thread 87): 0
+# max. abs. rel. error (thread 84): 0
+# max. abs. rel. error (thread 16): 0
+# max. abs. rel. error (thread 72): 0
+# max. abs. rel. error (thread 62): 0
+# max. abs. rel. error (thread 105): 0
+# max. abs. rel. error (thread 77): 0
+# max. abs. rel. error (thread 52): 0
+# max. abs. rel. error (thread 36): 0
+# max. abs. rel. error (thread 112): 0
+# max. abs. rel. error (thread 14): 0
+# max. abs. rel. error (thread 15): 0
+# max. abs. rel. error (thread 71): 0
+# max. abs. rel. error (thread 75): 0
+# max. abs. rel. error (thread 38): 0
+# max. abs. rel. error (thread 12): 0
+# max. abs. rel. error (thread 50): 0
+# max. abs. rel. error (thread 67): 0
+# max. abs. rel. error (thread 90): 0
+# max. abs. rel. error (thread 88): 0
+# max. abs. rel. error (thread 45): 0
+# max. abs. rel. error (thread 82): 0
+# max. abs. rel. error (thread 73): 0
+# max. abs. rel. error (thread 35): 0
+# max. abs. rel. error (thread 29): 0
+# max. abs. rel. error (thread 18): 0
+# max. abs. rel. error (thread 70): 0
+# max. abs. rel. error (thread 31): 0
+# max. abs. rel. error (thread 91): 0
+# max. abs. rel. error (thread 86): 0
+# max. abs. rel. error (thread 17): 0
+# max. abs. rel. error (thread 117): 0
+# max. abs. rel. error (thread 81): 0
+# max. abs. rel. error (thread 110): 0
+# max. abs. rel. error (thread 0): 0
+# max. abs. rel. error (thread 27): 0
+# max. abs. rel. error (thread 10): 0
+# max. abs. rel. error (thread 64): 0
+# max. abs. rel. error (thread 30): 0
+# max. abs. rel. error (thread 116): 0
+# max. abs. rel. error (thread 58): 0
+# max. abs. rel. error (thread 13): 0
+# max. abs. rel. error (thread 59): 0
+# max. abs. rel. error (thread 76): 0
+# max. abs. rel. error (thread 79): 0
+# max. abs. rel. error (thread 25): 0
+# max. abs. rel. error (thread 89): 0
+# max. abs. rel. error (thread 8): 0
+# max. abs. rel. error (thread 56): 0
+# max. abs. rel. error (thread 55): 0
+# max. abs. rel. error (thread 26): 0
+# max. abs. rel. error (thread 115): 0
+# max. abs. rel. error (thread 118): 0
+# max. abs. rel. error (thread 106): 0
+# max. abs. rel. error (thread 46): 0
+# output (thread 2): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# output (thread 3): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# output (thread 1): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# output (thread 4): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# output (thread 6): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# output (thread 5): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# output (thread 7): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 42): 0
+# max. abs. rel. error (thread 102): 0
+# max. abs. rel. error (thread 108): 0
+# max. abs. rel. error (thread 48): 0
+# max. abs. rel. error (thread 100): 0
+# max. abs. rel. error (thread 40): 0
+# max. abs. rel. error (thread 103): 0
+# max. abs. rel. error (thread 43): 0
+# max. abs. rel. error (thread 54): 0
+# max. abs. rel. error (thread 114): 0
+# max. abs. rel. error (thread 113): 0
+# max. abs. rel. error (thread 53): 0
+# max. abs. rel. error (thread 111): 0
+# max. abs. rel. error (thread 51): 0
+# max. abs. rel. error (thread 94): 0
+# max. abs. rel. error (thread 34): 0
+# max. abs. rel. error (thread 41): 0
+# max. abs. rel. error (thread 101): 0
+# max. abs. rel. error (thread 93): 0
+# max. abs. rel. error (thread 33): 0
+# max. abs. rel. error (thread 9): 0
+# max. abs. rel. error (thread 69): 0
+# max. abs. rel. error (thread 92): 0
+# max. abs. rel. error (thread 32): 0
+# max. abs. rel. error (thread 2): 0
+# max. abs. rel. error (thread 3): 0
+# max. abs. rel. error (thread 1): 0
+# max. abs. rel. error (thread 4): 0
+# max. abs. rel. error (thread 6): 0
+# max. abs. rel. error (thread 5): 0
+# max. abs. rel. error (thread 7): 0
+
+# version=explicit_vectorization
+# number of OMP threads : 120
+# timings per loop iteration:
+# mean		err		min		max
+2.81552e-08	4.57004e-11	2.34286e-08	3.49246e-08
+# output (thread 0): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 85): 8.02657e-16
+# max. abs. rel. error (thread 25): 8.02657e-16
+# max. abs. rel. error (thread 102): 8.02657e-16
+# max. abs. rel. error (thread 42): 8.02657e-16
+# max. abs. rel. error (thread 62): 8.02657e-16
+# max. abs. rel. error (thread 70): 8.02657e-16
+# max. abs. rel. error (thread 90): 8.02657e-16
+# max. abs. rel. error (thread 94): 8.02657e-16
+# max. abs. rel. error (thread 64): 8.02657e-16
+# max. abs. rel. error (thread 103): 8.02657e-16
+# max. abs. rel. error (thread 91): 8.02657e-16
+# max. abs. rel. error (thread 65): 8.02657e-16
+# max. abs. rel. error (thread 30): 8.02657e-16
+# max. abs. rel. error (thread 83): 8.02657e-16
+# max. abs. rel. error (thread 75): 8.02657e-16
+# max. abs. rel. error (thread 39): 8.02657e-16
+# max. abs. rel. error (thread 116): 8.02657e-16
+# max. abs. rel. error (thread 31): 8.02657e-16
+# max. abs. rel. error (thread 38): 8.02657e-16
+# max. abs. rel. error (thread 105): 8.02657e-16
+# max. abs. rel. error (thread 86): 8.02657e-16
+# max. abs. rel. error (thread 50): 8.02657e-16
+# max. abs. rel. error (thread 110): 8.02657e-16
+# max. abs. rel. error (thread 63): 8.02657e-16
+# max. abs. rel. error (thread 56): 8.02657e-16
+# max. abs. rel. error (thread 10): 8.02657e-16
+# max. abs. rel. error (thread 48): 8.02657e-16
+# max. abs. rel. error (thread 15): 8.02657e-16
+# max. abs. rel. error (thread 26): 8.02657e-16
+# max. abs. rel. error (thread 66): 8.02657e-16
+# max. abs. rel. error (thread 47): 8.02657e-16
+# max. abs. rel. error (thread 33): 8.02657e-16
+# max. abs. rel. error (thread 22): 8.02657e-16
+# max. abs. rel. error (thread 53): 8.02657e-16
+# max. abs. rel. error (thread 97): 8.02657e-16
+# max. abs. rel. error (thread 0): 8.02657e-16
+# max. abs. rel. error (thread 11): 8.02657e-16
+# max. abs. rel. error (thread 84): 8.02657e-16
+# max. abs. rel. error (thread 106): 8.02657e-16
+# max. abs. rel. error (thread 80): 8.02657e-16
+# max. abs. rel. error (thread 20): 8.02657e-16
+# max. abs. rel. error (thread 46): 8.02657e-16
+# max. abs. rel. error (thread 71): 8.02657e-16
+# output (thread 7): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# output (thread 5): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# output (thread 6): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 104): 8.02657e-16
+# max. abs. rel. error (thread 107): 8.02657e-16
+# max. abs. rel. error (thread 98): 8.02657e-16
+# max. abs. rel. error (thread 8): 8.02657e-16
+# max. abs. rel. error (thread 24): 8.02657e-16
+# max. abs. rel. error (thread 88): 8.02657e-16
+# output (thread 2): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 28): 8.02657e-16
+# max. abs. rel. error (thread 113): 8.02657e-16
+# max. abs. rel. error (thread 82): 8.02657e-16
+# output (thread 3): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 108): 8.02657e-16
+# max. abs. rel. error (thread 27): 8.02657e-16
+# max. abs. rel. error (thread 23): 8.02657e-16
+# max. abs. rel. error (thread 45): 8.02657e-16
+# max. abs. rel. error (thread 100): 8.02657e-16
+# max. abs. rel. error (thread 68): 8.02657e-16
+# max. abs. rel. error (thread 93): 8.02657e-16
+# max. abs. rel. error (thread 95): 8.02657e-16
+# max. abs. rel. error (thread 40): 8.02657e-16
+# max. abs. rel. error (thread 34): 8.02657e-16
+# max. abs. rel. error (thread 69): 8.02657e-16
+# output (thread 1): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 37): 8.02657e-16
+# max. abs. rel. error (thread 36): 8.02657e-16
+# max. abs. rel. error (thread 9): 8.02657e-16
+# max. abs. rel. error (thread 111): 8.02657e-16
+# max. abs. rel. error (thread 76): 8.02657e-16
+# max. abs. rel. error (thread 87): 8.02657e-16
+# max. abs. rel. error (thread 99): 8.02657e-16
+# max. abs. rel. error (thread 58): 8.02657e-16
+# max. abs. rel. error (thread 51): 8.02657e-16
+# max. abs. rel. error (thread 61): 8.02657e-16
+# max. abs. rel. error (thread 44): 8.02657e-16
+# max. abs. rel. error (thread 67): 8.02657e-16
+# max. abs. rel. error (thread 118): 8.02657e-16
+# max. abs. rel. error (thread 119): 8.02657e-16
+# max. abs. rel. error (thread 59): 8.02657e-16
+# output (thread 4): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 96): 8.02657e-16
+# max. abs. rel. error (thread 35): 8.02657e-16
+# max. abs. rel. error (thread 16): 8.02657e-16
+# max. abs. rel. error (thread 43): 8.02657e-16
+# max. abs. rel. error (thread 52): 8.02657e-16
+# max. abs. rel. error (thread 112): 8.02657e-16
+# max. abs. rel. error (thread 13): 8.02657e-16
+# max. abs. rel. error (thread 73): 8.02657e-16
+# max. abs. rel. error (thread 12): 8.02657e-16
+# max. abs. rel. error (thread 72): 8.02657e-16
+# max. abs. rel. error (thread 78): 8.02657e-16
+# max. abs. rel. error (thread 18): 8.02657e-16
+# max. abs. rel. error (thread 79): 8.02657e-16
+# max. abs. rel. error (thread 19): 8.02657e-16
+# max. abs. rel. error (thread 77): 8.02657e-16
+# max. abs. rel. error (thread 17): 8.02657e-16
+# max. abs. rel. error (thread 60): 8.02657e-16
+# max. abs. rel. error (thread 115): 8.02657e-16
+# max. abs. rel. error (thread 55): 8.02657e-16
+# max. abs. rel. error (thread 21): 8.02657e-16
+# max. abs. rel. error (thread 81): 8.02657e-16
+# max. abs. rel. error (thread 74): 8.02657e-16
+# max. abs. rel. error (thread 14): 8.02657e-16
+# max. abs. rel. error (thread 109): 8.02657e-16
+# max. abs. rel. error (thread 49): 8.02657e-16
+# max. abs. rel. error (thread 92): 8.02657e-16
+# max. abs. rel. error (thread 32): 8.02657e-16
+# max. abs. rel. error (thread 114): 8.02657e-16
+# max. abs. rel. error (thread 54): 8.02657e-16
+# max. abs. rel. error (thread 101): 8.02657e-16
+# max. abs. rel. error (thread 41): 8.02657e-16
+# max. abs. rel. error (thread 89): 8.02657e-16
+# max. abs. rel. error (thread 29): 8.02657e-16
+# max. abs. rel. error (thread 117): 8.02657e-16
+# max. abs. rel. error (thread 57): 8.02657e-16
+# max. abs. rel. error (thread 7): 8.02657e-16
+# max. abs. rel. error (thread 5): 8.02657e-16
+# max. abs. rel. error (thread 6): 8.02657e-16
+# max. abs. rel. error (thread 2): 8.02657e-16
+# max. abs. rel. error (thread 3): 8.02657e-16
+# max. abs. rel. error (thread 1): 8.02657e-16
+# max. abs. rel. error (thread 4): 8.02657e-16
+
+# version=enhanced_explicit_vectorization
+# number of OMP threads : 120
+# timings per loop iteration:
+# mean		err		min		max
+2.91263e-08	7.59141e-11	2.49129e-08	4.51691e-08
+# output (thread 0): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 72): 8.02657e-16
+# max. abs. rel. error (thread 12): 8.02657e-16
+# max. abs. rel. error (thread 57): 8.02657e-16
+# max. abs. rel. error (thread 117): 8.02657e-16
+# max. abs. rel. error (thread 66): 8.02657e-16
+# max. abs. rel. error (thread 13): 8.02657e-16
+# max. abs. rel. error (thread 76): 8.02657e-16
+# max. abs. rel. error (thread 45): 8.02657e-16
+# max. abs. rel. error (thread 106): 8.02657e-16
+# max. abs. rel. error (thread 92): 8.02657e-16
+# max. abs. rel. error (thread 67): 8.02657e-16
+# max. abs. rel. error (thread 65): 8.02657e-16
+# max. abs. rel. error (thread 30): 8.02657e-16
+# max. abs. rel. error (thread 25): 8.02657e-16
+# max. abs. rel. error (thread 19): 8.02657e-16
+# max. abs. rel. error (thread 16): 8.02657e-16
+# max. abs. rel. error (thread 84): 8.02657e-16
+# max. abs. rel. error (thread 37): 8.02657e-16
+# max. abs. rel. error (thread 85): 8.02657e-16
+# max. abs. rel. error (thread 54): 8.02657e-16
+# max. abs. rel. error (thread 17): 8.02657e-16
+# max. abs. rel. error (thread 109): 8.02657e-16
+# max. abs. rel. error (thread 77): 8.02657e-16
+# max. abs. rel. error (thread 38): 8.02657e-16
+# max. abs. rel. error (thread 112): 8.02657e-16
+# max. abs. rel. error (thread 20): 8.02657e-16
+# max. abs. rel. error (thread 51): 8.02657e-16
+# max. abs. rel. error (thread 94): 8.02657e-16
+# max. abs. rel. error (thread 80): 8.02657e-16
+# max. abs. rel. error (thread 0): 8.02657e-16
+# max. abs. rel. error (thread 96): 8.02657e-16
+# max. abs. rel. error (thread 95): 8.02657e-16
+# output (thread 2): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 62): 8.02657e-16
+# max. abs. rel. error (thread 107): 8.02657e-16
+# max. abs. rel. error (thread 113): 8.02657e-16
+# max. abs. rel. error (thread 35): 8.02657e-16
+# max. abs. rel. error (thread 64): 8.02657e-16
+# output (thread 4): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 87): 8.02657e-16
+# max. abs. rel. error (thread 91): 8.02657e-16
+# max. abs. rel. error (thread 47): 8.02657e-16
+# max. abs. rel. error (thread 78): 8.02657e-16
+# max. abs. rel. error (thread 104): 8.02657e-16
+# max. abs. rel. error (thread 89): 8.02657e-16
+# max. abs. rel. error (thread 101): 8.02657e-16
+# max. abs. rel. error (thread 33): 8.02657e-16
+# max. abs. rel. error (thread 93): 8.02657e-16
+# output (thread 7): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 111): 8.02657e-16
+# max. abs. rel. error (thread 34): 8.02657e-16
+# max. abs. rel. error (thread 32): 8.02657e-16
+# max. abs. rel. error (thread 100): 8.02657e-16
+# max. abs. rel. error (thread 68): 8.02657e-16
+# max. abs. rel. error (thread 22): 8.02657e-16
+# max. abs. rel. error (thread 41): 8.02657e-16
+# max. abs. rel. error (thread 79): 8.02657e-16
+# max. abs. rel. error (thread 60): 8.02657e-16
+# max. abs. rel. error (thread 39): 8.02657e-16
+# max. abs. rel. error (thread 53): 8.02657e-16
+# output (thread 5): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 56): 8.02657e-16
+# max. abs. rel. error (thread 82): 8.02657e-16
+# max. abs. rel. error (thread 55): 8.02657e-16
+# max. abs. rel. error (thread 21): 8.02657e-16
+# max. abs. rel. error (thread 75): 8.02657e-16
+# max. abs. rel. error (thread 8): 8.02657e-16
+# max. abs. rel. error (thread 114): 8.02657e-16
+# max. abs. rel. error (thread 61): 8.02657e-16
+# max. abs. rel. error (thread 15): 8.02657e-16
+# max. abs. rel. error (thread 27): 8.02657e-16
+# output (thread 6): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 40): 8.02657e-16
+# max. abs. rel. error (thread 46): 8.02657e-16
+# max. abs. rel. error (thread 58): 8.02657e-16
+# max. abs. rel. error (thread 70): 8.02657e-16
+# max. abs. rel. error (thread 14): 8.02657e-16
+# max. abs. rel. error (thread 97): 8.02657e-16
+# max. abs. rel. error (thread 28): 8.02657e-16
+# max. abs. rel. error (thread 88): 8.02657e-16
+# max. abs. rel. error (thread 11): 8.02657e-16
+# max. abs. rel. error (thread 86): 8.02657e-16
+# max. abs. rel. error (thread 105): 8.02657e-16
+# max. abs. rel. error (thread 116): 8.02657e-16
+# max. abs. rel. error (thread 23): 8.02657e-16
+# max. abs. rel. error (thread 59): 8.02657e-16
+# max. abs. rel. error (thread 83): 8.02657e-16
+# max. abs. rel. error (thread 74): 8.02657e-16
+# max. abs. rel. error (thread 118): 8.02657e-16
+# max. abs. rel. error (thread 81): 8.02657e-16
+# max. abs. rel. error (thread 115): 8.02657e-16
+# max. abs. rel. error (thread 50): 8.02657e-16
+# max. abs. rel. error (thread 99): 8.02657e-16
+# max. abs. rel. error (thread 119): 8.02657e-16
+# max. abs. rel. error (thread 29): 8.02657e-16
+# max. abs. rel. error (thread 42): 8.02657e-16
+# max. abs. rel. error (thread 44): 8.02657e-16
+# max. abs. rel. error (thread 102): 8.02657e-16
+# max. abs. rel. error (thread 69): 8.02657e-16
+# max. abs. rel. error (thread 73): 8.02657e-16
+# max. abs. rel. error (thread 49): 8.02657e-16
+# max. abs. rel. error (thread 26): 8.02657e-16
+# max. abs. rel. error (thread 71): 8.02657e-16
+# max. abs. rel. error (thread 10): 8.02657e-16
+# max. abs. rel. error (thread 48): 8.02657e-16
+# max. abs. rel. error (thread 24): 8.02657e-16
+# max. abs. rel. error (thread 98): 8.02657e-16
+# output (thread 3): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# output (thread 1): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 43): 8.02657e-16
+# max. abs. rel. error (thread 110): 8.02657e-16
+# max. abs. rel. error (thread 36): 8.02657e-16
+# max. abs. rel. error (thread 103): 8.02657e-16
+# max. abs. rel. error (thread 31): 8.02657e-16
+# max. abs. rel. error (thread 90): 8.02657e-16
+# max. abs. rel. error (thread 18): 8.02657e-16
+# max. abs. rel. error (thread 63): 8.02657e-16
+# max. abs. rel. error (thread 9): 8.02657e-16
+# max. abs. rel. error (thread 108): 8.02657e-16
+# max. abs. rel. error (thread 52): 8.02657e-16
+# max. abs. rel. error (thread 2): 8.02657e-16
+# max. abs. rel. error (thread 4): 8.02657e-16
+# max. abs. rel. error (thread 7): 8.02657e-16
+# max. abs. rel. error (thread 5): 8.02657e-16
+# max. abs. rel. error (thread 6): 8.02657e-16
+# max. abs. rel. error (thread 3): 8.02657e-16
+# max. abs. rel. error (thread 1): 8.02657e-16
+
+# version=manual_vectorization
+# number of OMP threads : 120
+# timings per loop iteration:
+# mean		err		min		max
+3.0647e-08	8.45625e-11	2.44181e-08	3.84462e-08
+# output (thread 0): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 72): 8.02657e-16
+# max. abs. rel. error (thread 12): 8.02657e-16
+# max. abs. rel. error (thread 14): 8.02657e-16
+# max. abs. rel. error (thread 74): 8.02657e-16
+# max. abs. rel. error (thread 75): 8.02657e-16
+# max. abs. rel. error (thread 82): 8.02657e-16
+# max. abs. rel. error (thread 22): 8.02657e-16
+# max. abs. rel. error (thread 76): 8.02657e-16
+# max. abs. rel. error (thread 15): 8.02657e-16
+# max. abs. rel. error (thread 13): 8.02657e-16
+# max. abs. rel. error (thread 16): 8.02657e-16
+# max. abs. rel. error (thread 73): 8.02657e-16
+# max. abs. rel. error (thread 83): 8.02657e-16
+# max. abs. rel. error (thread 79): 8.02657e-16
+# max. abs. rel. error (thread 60): 8.02657e-16
+# max. abs. rel. error (thread 9): 8.02657e-16
+# max. abs. rel. error (thread 18): 8.02657e-16
+# max. abs. rel. error (thread 80): 8.02657e-16
+# max. abs. rel. error (thread 90): 8.02657e-16
+# max. abs. rel. error (thread 108): 8.02657e-16
+# max. abs. rel. error (thread 56): 8.02657e-16
+# max. abs. rel. error (thread 62): 8.02657e-16
+# max. abs. rel. error (thread 68): 8.02657e-16
+# max. abs. rel. error (thread 105): 8.02657e-16
+# max. abs. rel. error (thread 8): 8.02657e-16
+# max. abs. rel. error (thread 45): 8.02657e-16
+# max. abs. rel. error (thread 66): 8.02657e-16
+# output (thread 6): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 40): 8.02657e-16
+# max. abs. rel. error (thread 100): 8.02657e-16
+# max. abs. rel. error (thread 41): 8.02657e-16
+# max. abs. rel. error (thread 10): 8.02657e-16
+# max. abs. rel. error (thread 85): 8.02657e-16
+# max. abs. rel. error (thread 25): 8.02657e-16
+# max. abs. rel. error (thread 110): 8.02657e-16
+# max. abs. rel. error (thread 36): 8.02657e-16
+# max. abs. rel. error (thread 116): 8.02657e-16
+# max. abs. rel. error (thread 21): 8.02657e-16
+# max. abs. rel. error (thread 48): 8.02657e-16
+# max. abs. rel. error (thread 19): 8.02657e-16
+# max. abs. rel. error (thread 113): 8.02657e-16
+# max. abs. rel. error (thread 53): 8.02657e-16
+# max. abs. rel. error (thread 78): 8.02657e-16
+# max. abs. rel. error (thread 101): 8.02657e-16
+# max. abs. rel. error (thread 64): 8.02657e-16
+# max. abs. rel. error (thread 26): 8.02657e-16
+# max. abs. rel. error (thread 33): 8.02657e-16
+# max. abs. rel. error (thread 84): 8.02657e-16
+# max. abs. rel. error (thread 31): 8.02657e-16
+# max. abs. rel. error (thread 97): 8.02657e-16
+# max. abs. rel. error (thread 69): 8.02657e-16
+# max. abs. rel. error (thread 65): 8.02657e-16
+# max. abs. rel. error (thread 77): 8.02657e-16
+# max. abs. rel. error (thread 17): 8.02657e-16
+# max. abs. rel. error (thread 67): 8.02657e-16
+# max. abs. rel. error (thread 109): 8.02657e-16
+# max. abs. rel. error (thread 107): 8.02657e-16
+# max. abs. rel. error (thread 111): 8.02657e-16
+# max. abs. rel. error (thread 20): 8.02657e-16
+# max. abs. rel. error (thread 118): 8.02657e-16
+# max. abs. rel. error (thread 58): 8.02657e-16
+# max. abs. rel. error (thread 93): 8.02657e-16
+# max. abs. rel. error (thread 61): 8.02657e-16
+# max. abs. rel. error (thread 91): 8.02657e-16
+# max. abs. rel. error (thread 23): 8.02657e-16
+# max. abs. rel. error (thread 63): 8.02657e-16
+# max. abs. rel. error (thread 106): 8.02657e-16
+# max. abs. rel. error (thread 28): 8.02657e-16
+# output (thread 2): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 102): 8.02657e-16
+# max. abs. rel. error (thread 104): 8.02657e-16
+# max. abs. rel. error (thread 59): 8.02657e-16
+# max. abs. rel. error (thread 119): 8.02657e-16
+# max. abs. rel. error (thread 24): 8.02657e-16
+# output (thread 7): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 95): 8.02657e-16
+# output (thread 4): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 30): 8.02657e-16
+# max. abs. rel. error (thread 35): 8.02657e-16
+# max. abs. rel. error (thread 46): 8.02657e-16
+# max. abs. rel. error (thread 29): 8.02657e-16
+# max. abs. rel. error (thread 103): 8.02657e-16
+# max. abs. rel. error (thread 96): 8.02657e-16
+# max. abs. rel. error (thread 50): 8.02657e-16
+# max. abs. rel. error (thread 42): 8.02657e-16
+# max. abs. rel. error (thread 32): 8.02657e-16
+# max. abs. rel. error (thread 88): 8.02657e-16
+# max. abs. rel. error (thread 11): 8.02657e-16
+# max. abs. rel. error (thread 44): 8.02657e-16
+# max. abs. rel. error (thread 114): 8.02657e-16
+# output (thread 3): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 81): 8.02657e-16
+# max. abs. rel. error (thread 55): 8.02657e-16
+# max. abs. rel. error (thread 70): 8.02657e-16
+# max. abs. rel. error (thread 47): 8.02657e-16
+# max. abs. rel. error (thread 39): 8.02657e-16
+# max. abs. rel. error (thread 43): 8.02657e-16
+# output (thread 1): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 0): 8.02657e-16
+# max. abs. rel. error (thread 94): 8.02657e-16
+# output (thread 5): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 49): 8.02657e-16
+# max. abs. rel. error (thread 112): 8.02657e-16
+# max. abs. rel. error (thread 92): 8.02657e-16
+# max. abs. rel. error (thread 57): 8.02657e-16
+# max. abs. rel. error (thread 117): 8.02657e-16
+# max. abs. rel. error (thread 71): 8.02657e-16
+# max. abs. rel. error (thread 51): 8.02657e-16
+# max. abs. rel. error (thread 86): 8.02657e-16
+# max. abs. rel. error (thread 98): 8.02657e-16
+# max. abs. rel. error (thread 99): 8.02657e-16
+# max. abs. rel. error (thread 37): 8.02657e-16
+# max. abs. rel. error (thread 52): 8.02657e-16
+# max. abs. rel. error (thread 89): 8.02657e-16
+# max. abs. rel. error (thread 27): 8.02657e-16
+# max. abs. rel. error (thread 87): 8.02657e-16
+# max. abs. rel. error (thread 34): 8.02657e-16
+# max. abs. rel. error (thread 115): 8.02657e-16
+# max. abs. rel. error (thread 54): 8.02657e-16
+# max. abs. rel. error (thread 38): 8.02657e-16
+# max. abs. rel. error (thread 6): 8.02657e-16
+# max. abs. rel. error (thread 2): 8.02657e-16
+# max. abs. rel. error (thread 7): 8.02657e-16
+# max. abs. rel. error (thread 4): 8.02657e-16
+# max. abs. rel. error (thread 3): 8.02657e-16
+# max. abs. rel. error (thread 1): 8.02657e-16
+# max. abs. rel. error (thread 5): 8.02657e-16
+
+# version=simd_class_vectorization
+# number of OMP threads : 120
+# timings per loop iteration:
+# mean		err		min		max
+3.34055e-08	3.20002e-11	2.88128e-08	3.64962e-08
+# output (thread 0): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 63): 8.02657e-16
+# max. abs. rel. error (thread 61): 8.02657e-16
+# max. abs. rel. error (thread 28): 8.02657e-16
+# max. abs. rel. error (thread 50): 8.02657e-16
+# max. abs. rel. error (thread 64): 8.02657e-16
+# max. abs. rel. error (thread 99): 8.02657e-16
+# max. abs. rel. error (thread 88): 8.02657e-16
+# max. abs. rel. error (thread 62): 8.02657e-16
+# max. abs. rel. error (thread 93): 8.02657e-16
+# max. abs. rel. error (thread 48): 8.02657e-16
+# max. abs. rel. error (thread 103): 8.02657e-16
+# max. abs. rel. error (thread 47): 8.02657e-16
+# max. abs. rel. error (thread 46): 8.02657e-16
+# max. abs. rel. error (thread 94): 8.02657e-16
+# max. abs. rel. error (thread 55): 8.02657e-16
+# max. abs. rel. error (thread 96): 8.02657e-16
+# max. abs. rel. error (thread 34): 8.02657e-16
+# max. abs. rel. error (thread 108): 8.02657e-16
+# max. abs. rel. error (thread 10): 8.02657e-16
+# max. abs. rel. error (thread 43): 8.02657e-16
+# max. abs. rel. error (thread 66): 8.02657e-16
+# max. abs. rel. error (thread 107): 8.02657e-16
+# max. abs. rel. error (thread 110): 8.02657e-16
+# max. abs. rel. error (thread 37): 8.02657e-16
+# max. abs. rel. error (thread 36): 8.02657e-16
+# max. abs. rel. error (thread 115): 8.02657e-16
+# max. abs. rel. error (thread 30): 8.02657e-16
+# max. abs. rel. error (thread 97): 8.02657e-16
+# max. abs. rel. error (thread 67): 8.02657e-16
+# max. abs. rel. error (thread 117): 8.02657e-16
+# max. abs. rel. error (thread 68): 8.02657e-16
+# max. abs. rel. error (thread 8): 8.02657e-16
+# max. abs. rel. error (thread 42): 8.02657e-16
+# max. abs. rel. error (thread 113): 8.02657e-16
+# max. abs. rel. error (thread 27): 8.02657e-16
+# max. abs. rel. error (thread 31): 8.02657e-16
+# max. abs. rel. error (thread 56): 8.02657e-16
+# max. abs. rel. error (thread 111): 8.02657e-16
+# max. abs. rel. error (thread 33): 8.02657e-16
+# max. abs. rel. error (thread 57): 8.02657e-16
+# max. abs. rel. error (thread 53): 8.02657e-16
+# max. abs. rel. error (thread 90): 8.02657e-16
+# max. abs. rel. error (thread 70): 8.02657e-16
+# max. abs. rel. error (thread 24): 8.02657e-16
+# max. abs. rel. error (thread 116): 8.02657e-16
+# max. abs. rel. error (thread 51): 8.02657e-16
+# max. abs. rel. error (thread 91): 8.02657e-16
+# max. abs. rel. error (thread 106): 8.02657e-16
+# max. abs. rel. error (thread 39): 8.02657e-16
+# max. abs. rel. error (thread 87): 8.02657e-16
+# max. abs. rel. error (thread 102): 8.02657e-16
+# max. abs. rel. error (thread 84): 8.02657e-16
+# max. abs. rel. error (thread 0): 8.02657e-16
+# output (thread 5): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# output (thread 3): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# output (thread 7): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# output (thread 6): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# output (thread 4): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# output (thread 1): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# output (thread 2): 70.5243 21.3776 13.9354 16.0553 24.7213 67.6477 47.9251 17.4781 
+# max. abs. rel. error (thread 76): 8.02657e-16
+# max. abs. rel. error (thread 16): 8.02657e-16
+# max. abs. rel. error (thread 80): 8.02657e-16
+# max. abs. rel. error (thread 20): 8.02657e-16
+# max. abs. rel. error (thread 74): 8.02657e-16
+# max. abs. rel. error (thread 14): 8.02657e-16
+# max. abs. rel. error (thread 12): 8.02657e-16
+# max. abs. rel. error (thread 72): 8.02657e-16
+# max. abs. rel. error (thread 82): 8.02657e-16
+# max. abs. rel. error (thread 22): 8.02657e-16
+# max. abs. rel. error (thread 60): 8.02657e-16
+# max. abs. rel. error (thread 73): 8.02657e-16
+# max. abs. rel. error (thread 13): 8.02657e-16
+# max. abs. rel. error (thread 18): 8.02657e-16
+# max. abs. rel. error (thread 78): 8.02657e-16
+# max. abs. rel. error (thread 19): 8.02657e-16
+# max. abs. rel. error (thread 79): 8.02657e-16
+# max. abs. rel. error (thread 65): 8.02657e-16
+# max. abs. rel. error (thread 83): 8.02657e-16
+# max. abs. rel. error (thread 23): 8.02657e-16
+# max. abs. rel. error (thread 15): 8.02657e-16
+# max. abs. rel. error (thread 75): 8.02657e-16
+# max. abs. rel. error (thread 44): 8.02657e-16
+# max. abs. rel. error (thread 104): 8.02657e-16
+# max. abs. rel. error (thread 21): 8.02657e-16
+# max. abs. rel. error (thread 81): 8.02657e-16
+# max. abs. rel. error (thread 77): 8.02657e-16
+# max. abs. rel. error (thread 17): 8.02657e-16
+# max. abs. rel. error (thread 41): 8.02657e-16
+# max. abs. rel. error (thread 101): 8.02657e-16
+# max. abs. rel. error (thread 119): 8.02657e-16
+# max. abs. rel. error (thread 59): 8.02657e-16
+# max. abs. rel. error (thread 95): 8.02657e-16
+# max. abs. rel. error (thread 35): 8.02657e-16
+# max. abs. rel. error (thread 52): 8.02657e-16
+# max. abs. rel. error (thread 112): 8.02657e-16
+# max. abs. rel. error (thread 98): 8.02657e-16
+# max. abs. rel. error (thread 38): 8.02657e-16
+# max. abs. rel. error (thread 32): 8.02657e-16
+# max. abs. rel. error (thread 92): 8.02657e-16
+# max. abs. rel. error (thread 71): 8.02657e-16
+# max. abs. rel. error (thread 11): 8.02657e-16
+# max. abs. rel. error (thread 86): 8.02657e-16
+# max. abs. rel. error (thread 26): 8.02657e-16
+# max. abs. rel. error (thread 109): 8.02657e-16
+# max. abs. rel. error (thread 49): 8.02657e-16
+# max. abs. rel. error (thread 89): 8.02657e-16
+# max. abs. rel. error (thread 29): 8.02657e-16
+# max. abs. rel. error (thread 114): 8.02657e-16
+# max. abs. rel. error (thread 54): 8.02657e-16
+# max. abs. rel. error (thread 45): 8.02657e-16
+# max. abs. rel. error (thread 105): 8.02657e-16
+# max. abs. rel. error (thread 85): 8.02657e-16
+# max. abs. rel. error (thread 25): 8.02657e-16
+# max. abs. rel. error (thread 100): 8.02657e-16
+# max. abs. rel. error (thread 40): 8.02657e-16
+# max. abs. rel. error (thread 118): 8.02657e-16
+# max. abs. rel. error (thread 58): 8.02657e-16
+# max. abs. rel. error (thread 69): 8.02657e-16
+# max. abs. rel. error (thread 9): 8.02657e-16
+# max. abs. rel. error (thread 5): 8.02657e-16
+# max. abs. rel. error (thread 3): 8.02657e-16
+# max. abs. rel. error (thread 7): 8.02657e-16
+# max. abs. rel. error (thread 6): 8.02657e-16
+# max. abs. rel. error (thread 4): 8.02657e-16
+# max. abs. rel. error (thread 1): 8.02657e-16
+# max. abs. rel. error (thread 2): 8.02657e-16
+

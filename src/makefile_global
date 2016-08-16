@@ -1,0 +1,29 @@
+# to be called by another makefile that sets variables
+
+# export all variables for subsequent make calls
+SRC_DIR=$(CURDIR)
+export
+
+all : 
+	mkdir -p $(BIN_DIR)
+	make -C simple			-f ../makefile_local PREFIX=$(BIN_DIR)/simple
+	make -C conditional_math_call	-f ../makefile_local PREFIX=$(BIN_DIR)/conditional_math_call
+	make -C early_return     	-f ../makefile_local PREFIX=$(BIN_DIR)/early_return
+	make -C nested_branching 	-f ../makefile_local PREFIX=$(BIN_DIR)/nested_branching
+	make -C while_loop       	-f ../makefile_local PREFIX=$(BIN_DIR)/while_loop
+
+makefile_global : 
+	echo "just a dummy rule"
+
+% : 
+	mkdir -p $(BIN_DIR)
+	make  -C $*			-f ../makefile_local PREFIX=$(BIN_DIR)/$@
+
+clean :
+	make -C simple			-f ../makefile_local PREFIX=$(BIN_DIR)/simple			clean
+	make -C conditional_math_call	-f ../makefile_local PREFIX=$(BIN_DIR)/conditional_math_call	clean
+	make -C early_return     	-f ../makefile_local PREFIX=$(BIN_DIR)/early_return     	clean
+	make -C nested_branching 	-f ../makefile_local PREFIX=$(BIN_DIR)/nested_branching 	clean
+	make -C while_loop       	-f ../makefile_local PREFIX=$(BIN_DIR)/while_loop       	clean
+	rm -rf $(BIN_DIR)
+

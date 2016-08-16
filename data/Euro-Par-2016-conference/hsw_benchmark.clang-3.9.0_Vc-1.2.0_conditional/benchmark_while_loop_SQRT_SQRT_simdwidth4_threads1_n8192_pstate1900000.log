@@ -1,0 +1,5 @@
+# version=reference
+# version=explicit_vectorization
+# version=enhanced_explicit_vectorization
+# version=manual_vectorization
+# version=simd_class_vectorization

@@ -1,0 +1,50 @@
+# version=reference
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+2.91203e-07	1.78161e-09	2.8027e-07	2.99566e-07
+# output (thread 0): 117.113 115.332 100.124 115.542 103.906 109.523 108.795 104.361 
+# output (thread 1): 117.113 115.332 100.124 115.542 103.906 109.523 108.795 104.361 
+# max. abs. rel. error (thread 0): 0
+# max. abs. rel. error (thread 1): 0
+
+# version=explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+1.11671e-07	6.2667e-11	1.11468e-07	1.12166e-07
+# output (thread 1): 117.113 115.332 100.124 115.542 103.906 109.523 108.795 104.361 
+# output (thread 0): 117.113 115.332 100.124 115.542 103.906 109.523 108.795 104.361 
+# max. abs. rel. error (thread 1): 6.49569e-16
+# max. abs. rel. error (thread 0): 6.49569e-16
+
+# version=enhanced_explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+1.22294e-07	3.69812e-09	1.04978e-07	1.32452e-07
+# output (thread 0): 117.113 115.332 100.124 115.542 103.906 109.523 108.795 104.361 
+# output (thread 1): 117.113 115.332 100.124 115.542 103.906 109.523 108.795 104.361 
+# max. abs. rel. error (thread 0): 6.49569e-16
+# max. abs. rel. error (thread 1): 6.49569e-16
+
+# version=manual_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+1.50367e-07	7.31488e-10	1.48313e-07	1.55647e-07
+# output (thread 1): 117.113 115.332 100.124 115.542 103.906 109.523 108.795 104.361 
+# output (thread 0): 117.113 115.332 100.124 115.542 103.906 109.523 108.795 104.361 
+# max. abs. rel. error (thread 1): 6.49569e-16
+# max. abs. rel. error (thread 0): 6.49569e-16
+
+# version=simd_class_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+2.12773e-07	1.0046e-09	2.10945e-07	2.202e-07
+# output (thread 1): 117.113 115.332 100.124 115.542 103.906 109.523 108.795 104.361 
+# output (thread 0): 117.113 115.332 100.124 115.542 103.906 109.523 108.795 104.361 
+# max. abs. rel. error (thread 1): 6.49569e-16
+# max. abs. rel. error (thread 0): 6.49569e-16
+

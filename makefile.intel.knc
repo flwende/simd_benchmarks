@@ -1,0 +1,25 @@
+CXX = icpc
+LD = icpc
+CXXFLAGS = -O3 -qopenmp -std=c++11 -fp-model fast=2 -qopt-report=5 -I$(CURDIR)/include
+LDFLAGS = -qopenmp
+
+FUNC = SQRT_SQRT
+SIMDWIDTH = 8
+
+CXXFLAGS += -mmic -D__MIC__
+CXXFLAGS += -DBENCHMARK_FUNC_$(FUNC)
+CXXFLAGS += -DSIMD_WIDTH_LOGICAL_REAL64=$(SIMDWIDTH)
+CXXFLAGS += -DDEBUG
+
+LDFLAGS += -mmic
+
+BIN_DIR = $(CURDIR)/bin.intel.knc
+
+# export all variables for subsequent make calls
+export
+
+all : 
+	make -C src -f makefile_global
+
+clean :
+	make -C src -f makefile_global clean

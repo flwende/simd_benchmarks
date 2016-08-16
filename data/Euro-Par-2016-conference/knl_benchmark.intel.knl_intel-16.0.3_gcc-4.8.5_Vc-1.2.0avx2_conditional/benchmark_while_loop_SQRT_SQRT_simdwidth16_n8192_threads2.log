@@ -1,0 +1,45 @@
+# version=reference
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+1.66559e-07	7.25834e-10	1.6237e-07	1.69792e-07
+# output (thread 1): 117.113 115.332 100.124 115.542 103.906 109.523 108.795 104.361 
+# output (thread 0): 117.113 115.332 100.124 115.542 103.906 109.523 108.795 104.361 
+# max. abs. rel. error (thread 1): 0
+# max. abs. rel. error (thread 0): 0
+# version=explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+1.11562e-07	2.4112e-10	1.09983e-07	1.1269e-07
+# output (thread 1): 117.113 115.332 100.124 115.542 103.906 109.523 108.795 104.361 
+# output (thread 0): 117.113 115.332 100.124 115.542 103.906 109.523 108.795 104.361 
+# max. abs. rel. error (thread 1): 6.34564e-16
+# max. abs. rel. error (thread 0): 6.34564e-16
+# version=enhanced_explicit_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+1.23022e-07	1.18924e-10	1.22556e-07	1.23662e-07
+# output (thread 0): 117.113 115.332 100.124 115.542 103.906 109.523 108.795 104.361 
+# output (thread 1): 117.113 115.332 100.124 115.542 103.906 109.523 108.795 104.361 
+# max. abs. rel. error (thread 0): 6.34564e-16
+# max. abs. rel. error (thread 1): 6.34564e-16
+# version=manual_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+5.94688e-08	2.63603e-10	5.84696e-08	6.05651e-08
+# output (thread 1): 117.113 115.332 100.124 115.542 103.906 109.523 108.795 104.361 
+# output (thread 0): 117.113 115.332 100.124 115.542 103.906 109.523 108.795 104.361 
+# max. abs. rel. error (thread 1): 6.48763e-16
+# max. abs. rel. error (thread 0): 6.48763e-16
+# version=simd_class_vectorization
+# number of OMP threads : 2
+# timings per loop iteration:
+# mean		err		min		max
+1.64138e-07	4.39489e-10	1.62225e-07	1.66154e-07
+# output (thread 1): 117.113 115.332 100.124 115.542 0 0 0 0 
+# output (thread 0): 117.113 115.332 100.124 115.542 0 0 0 0 
+# max. abs. rel. error (thread 1): 1
+# max. abs. rel. error (thread 0): 1

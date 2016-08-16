@@ -1,0 +1,50 @@
+# Author: Florian Wende (flwende@gmail.com)
+# Date: August 15th, 2016
+
+All data contained in this directory has been generated with the following setups:
+
+  + hsw_benchmark.intel-16.0.3_gcc-5.3.0_Vc-1.2.0_conditional
+	Software:
+		Intel 16.0.3 compiler
+		GNU 5.3.0 compiler
+		Vc library version 1.2.0
+	Hardware:
+		Intel Xeon E5-2680v3 clocked @ 1.9GHz
+
+  + hsw_benchmark.gnu-5.3.0_Vc-1.2.0_conditional
+	Software:
+		GNU 5.3.0 compiler
+		Vc library version 1.2.0
+	Hardware:
+		Intel Xeon E5-2680v3 clocked @ 1.9GHz
+
+  + hsw_benchmark.clang-3.9.0_Vc-1.2.0_conditional
+	Software:
+		Clang 3.9.0 compiler
+		GNU 5.3.0 compiler
+		Vc library version 1.2.0
+	Hardware:
+		Intel Xeon E5-2680v3 clocked @ 1.9GHz
+
+  + knc_benchmark.intel.knc_intel-16.0.3_gcc-5.3.0_Vc-1.2.0_conditional
+	Software:
+		Intel 16.0.3 compiler
+		GNU 5.3.0 compiler
+		Vc library version 1.2.0
+	Hardware:
+		Intel Xeon Phi 7120P (KNC)
+
+  + knl_benchmark.intel.knl_intel-16.0.3_gcc-4.8.5_Vc-1.2.0avx2_conditional
+	Software:
+		Intel 16.0.3 compiler
+		GNU 4.8.5 compiler
+		Vc library version 1.2.0 (compiled for AVX2)
+	Hardware:
+		Intel Xeon Phi 7210 (KNL)
+
+All executables have been built with the -DCONDITIONAL_CALL option.
+
+Program execution happened for
+  + hsw_benchmark* with "KMP_AFFINITY=disabled" and "aprun -cc 0,x,1,2,3,4,5,6,7,8,9,10,11 --p-state=1900000" (Cray Supercomputer).
+  + knc_benchmark* with "KMP_AFFINITY=scatter,granularity=thread".
+  + knl_benchmark* with "KMP_AFFINITY=scatter,granularity=thread".

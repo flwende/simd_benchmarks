@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# export VC_ROOT=${HOME}/opt/Vc-yyy
+# export VC_AVAILABLE=yes
+export VC_AVAILABLE=no
+export PLATFORM=x86
+
+make -f makefile.clang clean
+make -f makefile.clang -j16 $1 $2
