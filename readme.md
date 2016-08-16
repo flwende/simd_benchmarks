@@ -40,6 +40,12 @@ include/common
 
 include/<k>               // one sub-directory for each kernel k.
    kernel_<i>.cpp         // contains the implementations i.
+
+data/Euro-Par-2016-conference/
+   hsw*                   // benchmark data cites in the Euro-Par paper for Haswell,
+   knc*                   // Xeon Phi Knights Corner (KNC),
+   knl*                   // Xeon Phi Knights Landing (KNL).
+   notes.txt              // some information about the benchmarking setups.
 ```
 
 Build
