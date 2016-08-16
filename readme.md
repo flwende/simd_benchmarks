@@ -121,7 +121,7 @@ Tested setups
 - GNU 5.3.0 + glibc-2.22 on Intel Haswell platform
 - GNU 6.1.0 + glibc-2.23 on Intel Haswell platform
 - Intel 16.0.[1,2,3] on Intel Haswell, KNC, KNL platform
-- Clang 3.9 on Intel Haswell platform
+- Clang 3.8, 3.9(pre) on Intel Haswell platform
 
 References
 ==========

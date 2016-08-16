@@ -20,7 +20,7 @@ All data contained in this directory has been generated with the following setup
 
   + hsw_benchmark.clang-3.9.0_Vc-1.2.0_conditional
 	Software:
-		Clang 3.9.0 compiler
+		Clang 3.9.0(pre) compiler
 		GNU 5.3.0 compiler
 		Vc library version 1.2.0
 	Hardware:
@@ -45,6 +45,6 @@ All data contained in this directory has been generated with the following setup
 All executables have been built with the -DCONDITIONAL_CALL option.
 
 Program execution happened for
-  + hsw_benchmark* with "KMP_AFFINITY=disabled" and "aprun -cc 0,x,1,2,3,4,5,6,7,8,9,10,11 --p-state=1900000" (Cray Supercomputer).
+  + hsw_benchmark* with "KMP_AFFINITY=disabled" and "aprun -cc 0,x,1,2,3,4,5,6,7,8,9,10,11 --p-state=1900000" (Cray).
   + knc_benchmark* with "KMP_AFFINITY=scatter,granularity=thread".
   + knl_benchmark* with "KMP_AFFINITY=scatter,granularity=thread".
