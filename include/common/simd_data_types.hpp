@@ -66,6 +66,14 @@
 #endif
 
 #if defined(ENHANCED_EXPLICIT_VECTORIZATION) || defined(MANUAL_VECTORIZATION)
+	
+	#if !defined(__INTEL_COMPILER)
+	// online defined by Intel Compiler
+	inline int _mm512_mask2int(__mmask16 k1) {
+		return static_cast<int>(k1);
+	}
+	#endif
+	
 	// enhanced explicit vectorization: user defined vector data types.
 	// we use the logical simdwidth here to allow for vector loop unrolling with OpenMP 4.x.
 	typedef struct
@@ -100,7 +108,13 @@
 		#define SIMD_ALL_LANES_ACTIVE_INT (0xFF)
 		#define SIMD_ALL_LANES_INACTIVE_INT (0x0)
 		#define SIMD_MASK_MOV_REAL64(X0, M1, X1) _mm512_mask_mov_pd(X0, M1, X1)
-		#define SIMD_MASK_STORE_REAL64(ADDR, M1, X1) _mm512_mask_extstore_pd(reinterpret_cast<void*>(ADDR), M1, X1, _MM_DOWNCONV_PD_NONE, _MM_HINT_NONE)
+
+		#if defined(__MIC__)
+			#define SIMD_MASK_STORE_REAL64(ADDR, M1, X1) _mm512_mask_extstore_pd(reinterpret_cast<void*>(ADDR), M1, X1, _MM_DOWNCONV_PD_NONE, _MM_HINT_NONE)
+		#else // AVX-512
+			#define SIMD_MASK_STORE_REAL64(ADDR, M1, X1) _mm512_mask_store_pd(reinterpret_cast<void*>(ADDR), M1, X1)
+		#endif
+
 		#define SIMD_CMPGT_REAL64(X1, X2) _mm512_cmp_pd_mask(X1, X2, _CMP_GT_OS)
 		#define SIMD_CMPGE_REAL64(X1, X2) _mm512_cmp_pd_mask(X1, X2, _CMP_GE_OS)
 		#define SIMD_CMPLT_REAL64(X1, X2) _mm512_cmp_pd_mask(X1, X2, _CMP_LT_OS)
