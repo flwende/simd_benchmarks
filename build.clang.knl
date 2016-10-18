@@ -6,4 +6,4 @@ export VC_AVAILABLE=no
 export PLATFORM=x86
 
 make -f makefile.clang.knl clean
-make -f makefile.clang.knl $1 $2
+make -f makefile.clang.knl $1 $2 $3

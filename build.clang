@@ -6,4 +6,4 @@ export VC_AVAILABLE=no
 export PLATFORM=x86
 
 make -f makefile.clang clean
-make -f makefile.clang -j16 $1 $2
+make -f makefile.clang $1 $2 $3

@@ -7,4 +7,4 @@ export VC_AVAILABLE=no
 export PLATFORM=x86
 
 make -f makefile.gnu clean
-make -f makefile.gnu -j16 $1 $2
+make -f makefile.gnu $1 $2 $3
