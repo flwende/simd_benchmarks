@@ -112,7 +112,10 @@
 		#if defined(__MIC__)
 			#define SIMD_MASK_STORE_REAL64(ADDR, M1, X1) _mm512_mask_extstore_pd(reinterpret_cast<void*>(ADDR), M1, X1, _MM_DOWNCONV_PD_NONE, _MM_HINT_NONE)
 		#else // AVX-512
-			#define SIMD_MASK_STORE_REAL64(ADDR, M1, X1) _mm512_mask_store_pd(reinterpret_cast<void*>(ADDR), M1, X1)
+			// aligned masked store
+//			#define SIMD_MASK_STORE_REAL64(ADDR, M1, X1) _mm512_mask_store_pd(reinterpret_cast<void*>(ADDR), M1, X1)
+			// unaligned masked store
+			#define SIMD_MASK_STORE_REAL64(ADDR, M1, X1) _mm512_mask_storeu_pd(reinterpret_cast<void*>(ADDR), M1, X1)
 		#endif
 
 		#define SIMD_CMPGT_REAL64(X1, X2) _mm512_cmp_pd_mask(X1, X2, _CMP_GT_OS)
