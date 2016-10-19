@@ -28,7 +28,7 @@ export LD_LIBRARY_PATH=$HOME/Software/llvm_3.9.0/lib:$LD_LIBRARY_PATH
 
 module switch craype-ivybridge craype-haswell
 
-INTEL_LICENSE_FILE=27000@sdb
+export INTEL_LICENSE_FILE=27000@sdb
 
 aprun -n 1 -N 1 -cc none ./benchmark.cray.sh
 aprun -n 1 -N 1 -cc none ./benchmark.intel.sh
