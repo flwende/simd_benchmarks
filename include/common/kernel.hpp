@@ -9,7 +9,7 @@
 #include <cstdint>
 #include <cmath>
 
-#if defined(SIMD_CLASS_VECTORIZATION)
+#if defined(SIMD_CLASS_VC)
 	#include <Vc/Vc>
 #endif
 
@@ -93,12 +93,12 @@ void kernel_reference(const double& x_1, const double& x_2, double& y);
 #elif defined(ENHANCED_EXPLICIT_VECTORIZATION)
 	// kernel using OpenMP 4.x directives in its body.
 	void kernel_enhanced_explicit_vectorization(const vec_real64_t& x_1, const vec_real64_t& x_2, vec_real64_t& y, const mask_real64_t& m);
-#elif defined(MANUAL_VECTORIZATION)
+#elif defined(INTRINSICS)
 	// manual vectorization.
-	void kernel_manual_vectorization(const VEC_REAL64& x_1, const VEC_REAL64& x_2, VEC_REAL64& y, const MASK_REAL64& m);
-#elif defined(SIMD_CLASS_VECTORIZATION)
+	void kernel_intrinsics(const VEC_REAL64& x_1, const VEC_REAL64& x_2, VEC_REAL64& y, const MASK_REAL64& m);
+#elif defined(SIMD_CLASS_VC)
 	// simd class vectorization with VC.
-	void kernel_simd_class_vectorization(const Vc::double_v& x_1, const Vc::double_v& x_2, Vc::double_v& y, Vc::double_m& m);
+	void kernel_simd_class_vc(const Vc::double_v& x_1, const Vc::double_v& x_2, Vc::double_v& y, Vc::double_m& m);
 #endif
 
 #endif

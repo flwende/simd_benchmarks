@@ -17,7 +17,7 @@
 	#define SIMD_WIDTH_NATIVE_REAL64 (8)
 	// OpenMP 4.x allows to operate on logical vectors of larger size.
 	// values here can be larger than SIMD_WIDTH_NATIVE_REAL64.
-	#if defined(MANUAL_VECTORIZATION)
+	#if defined(INTRINSICS)
 		#undef SIMD_WIDTH_LOGICAL_REAL64
 		#define SIMD_WIDTH_LOGICAL_REAL64 (8)
 	#else
@@ -32,7 +32,7 @@
 	#define SIMD_WIDTH_NATIVE_REAL64 (4)
 	// OpenMP 4.x allows to operate on logical vectors of larger size.
 	// values here can be larger than SIMD_WIDTH_NATIVE_REAL64.
-	#if defined(MANUAL_VECTORIZATION)
+	#if defined(INTRINSICS)
 		#undef SIMD_WIDTH_LOGICAL_REAL64
 		#define SIMD_WIDTH_LOGICAL_REAL64 (4)
 	#else
@@ -65,7 +65,7 @@
 	#define SIMDLEN(X)
 #endif
 
-#if defined(ENHANCED_EXPLICIT_VECTORIZATION) || defined(MANUAL_VECTORIZATION)
+#if defined(ENHANCED_EXPLICIT_VECTORIZATION) || defined(INTRINSICS)
 	
 	#if !defined(__INTEL_COMPILER)
 	// online defined by Intel Compiler

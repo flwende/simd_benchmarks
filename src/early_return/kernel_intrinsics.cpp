@@ -9,7 +9,7 @@
 	#include "../../src/common/simd_data_types.cpp"
 #endif
 
-void kernel_manual_vectorization(const VEC_REAL64& x_1, const VEC_REAL64& x_2, VEC_REAL64& y, const MASK_REAL64& mask_0)
+void kernel_intrinsics(const VEC_REAL64& x_1, const VEC_REAL64& x_2, VEC_REAL64& y, const MASK_REAL64& mask_0)
 {
 	std::int32_t bitmask = SIMD_BITMASK_MASK_REAL64(mask_0);
 	// if all lanes are inactive return immediately.	

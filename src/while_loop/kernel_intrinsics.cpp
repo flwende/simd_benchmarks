@@ -12,7 +12,7 @@
 // maximum number of while loop iterations.
 #define Y_STOP 10.0
 
-void kernel_manual_vectorization(const VEC_REAL64& x_1, const VEC_REAL64& x_2, VEC_REAL64& y, const MASK_REAL64& mask_0)
+void kernel_intrinsics(const VEC_REAL64& x_1, const VEC_REAL64& x_2, VEC_REAL64& y, const MASK_REAL64& mask_0)
 {
 	MASK_REAL64 lane_alife = mask_0;
 	bool all_lanes_alife = (SIMD_BITMASK_MASK_REAL64(lane_alife) == SIMD_ALL_LANES_ACTIVE_INT);

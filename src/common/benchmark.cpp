@@ -80,9 +80,9 @@ int main(int argc, char **argv)
 
 	// if (simd) functions are called conditionally, we need mask arrays.
 	#if defined(CONDITIONAL_CALL)
-		#if defined(MANUAL_VECTORIZATION)
+		#if defined(INTRINSICS)
 			MASK_REAL64* m_vec[RUNS];
-		#elif defined(SIMD_CLASS_VECTORIZATION)
+		#elif defined(SIMD_CLASS_VC)
 			bool* m_vec[RUNS];
 		#endif
 			BOOL* m[RUNS];
@@ -111,7 +111,7 @@ int main(int argc, char **argv)
 				m[r][i] = (i < n && drand48() > THRESHOLD ? TRUE : FALSE);
 
 			// map the simd masks m[][] to the respective internal representations of the different simd ISAs.
-			#if defined(MANUAL_VECTORIZATION) && defined(SIMD_512)
+			#if defined(INTRINSICS) && defined(SIMD_512)
 				m_vec[r] = reinterpret_cast<MASK_REAL64*>(_mm_malloc((n_padded / SIMD_WIDTH_NATIVE_REAL64) * sizeof(MASK_REAL64), ALIGNMENT));
 				for (std::int32_t i = 0, j = 0; i < n_padded; i += SIMD_WIDTH_NATIVE_REAL64, ++j)
 					{
@@ -120,12 +120,12 @@ int main(int argc, char **argv)
 						for (std::int32_t ii = 0; ii < SIMD_WIDTH_NATIVE_REAL64; ++ii)
 							m_vec[r][j] |= (m[r][i + ii] == TRUE ? (SIMD_TRUE << ii) : SIMD_FALSE);
 					}
-			#elif defined(MANUAL_VECTORIZATION) && defined(SIMD_256)
+			#elif defined(INTRINSICS) && defined(SIMD_256)
 				m_vec[r] = reinterpret_cast<MASK_REAL64*>(_mm_malloc((n_padded / SIMD_WIDTH_NATIVE_REAL64) * sizeof(MASK_REAL64), ALIGNMENT));
 				std::uint64_t* ptr_m_vec = reinterpret_cast<std::uint64_t*>(m_vec[r]);
 				for (std::int32_t i = 0; i < n_padded; ++i)
 					ptr_m_vec[i] = (m[r][i] == TRUE ? SIMD_TRUE : SIMD_FALSE);
-			#elif defined(SIMD_CLASS_VECTORIZATION)
+			#elif defined(SIMD_CLASS_VC)
 				m_vec[r] = reinterpret_cast<bool*>(_mm_malloc(n_padded * sizeof(bool), ALIGNMENT));
 				for (std::int32_t i = 0; i < n_padded; ++i)
 					m_vec[r][i] = (m[r][i] == TRUE ? true : false);
@@ -241,11 +241,11 @@ int main(int argc, char **argv)
 					}
 				#endif
 			// manual vectorization with simd intrinsics.
-			#elif defined(MANUAL_VECTORIZATION)
+			#elif defined(INTRINSICS)
 				#if defined(CONDITIONAL_CALL)
 					for (std::int32_t i = 0, j = 0; i < n; i += SIMD_WIDTH_NATIVE_REAL64, ++j)
 						#pragma noinline
-		       				kernel_manual_vectorization(reinterpret_cast<VEC_REAL64&>(x_1[r][i]), reinterpret_cast<VEC_REAL64&>(x_2[r][i]), reinterpret_cast<VEC_REAL64&>(y[thread_id][1][i]), m_vec[r][j]);
+		       				kernel_intrinsics(reinterpret_cast<VEC_REAL64&>(x_1[r][i]), reinterpret_cast<VEC_REAL64&>(x_2[r][i]), reinterpret_cast<VEC_REAL64&>(y[thread_id][1][i]), m_vec[r][j]);
 				#else
 					// in the unconditional case the mask is allways TRUE except for the loop remainder case.
 					MASK_REAL64 m = SIMD_ALL_LANES_ACTIVE_MASK_REAL64;
@@ -253,7 +253,7 @@ int main(int argc, char **argv)
 					// perform all loop iterations with i < 'n_floor = largest multiple of SIMD_WIDTH_LOGICAL_REAL64 lower or equal to n'.
 			      		for (std::int32_t i = 0; i < n_floor; i += SIMD_WIDTH_NATIVE_REAL64)
 						#pragma noinline
-						kernel_manual_vectorization(reinterpret_cast<VEC_REAL64&>(x_1[r][i]), reinterpret_cast<VEC_REAL64&>(x_2[r][i]), reinterpret_cast<VEC_REAL64&>(y[thread_id][1][i]), m);
+						kernel_intrinsics(reinterpret_cast<VEC_REAL64&>(x_1[r][i]), reinterpret_cast<VEC_REAL64&>(x_2[r][i]), reinterpret_cast<VEC_REAL64&>(y[thread_id][1][i]), m);
 					// now perform the remainder loop.
 					#if defined(SIMD_512)
 						std::int32_t m_int = 0x0;
@@ -267,17 +267,17 @@ int main(int argc, char **argv)
 					#endif
 					for (std::int32_t i = n_floor; i < n; i += SIMD_WIDTH_NATIVE_REAL64)
 						#pragma noinline
-						kernel_manual_vectorization(reinterpret_cast<VEC_REAL64&>(x_1[r][i]), reinterpret_cast<VEC_REAL64&>(x_2[r][i]), reinterpret_cast<VEC_REAL64&>(y[thread_id][1][i]), m);
+						kernel_intrinsics(reinterpret_cast<VEC_REAL64&>(x_1[r][i]), reinterpret_cast<VEC_REAL64&>(x_2[r][i]), reinterpret_cast<VEC_REAL64&>(y[thread_id][1][i]), m);
 		       		#endif
        			// manual vectorization with Vc C++ simd class.
-			#elif defined(SIMD_CLASS_VECTORIZATION)
+			#elif defined(SIMD_CLASS_VC)
 				#if defined(CONDITIONAL_CALL)
 					Vc::double_m mask;
 					for (std::int32_t i = 0; i < n; i += SIMD_WIDTH_NATIVE_REAL64)
 					{
 						mask.load(&m_vec[r][i]);
 						#pragma noinline
-						kernel_simd_class_vectorization(reinterpret_cast<Vc::double_v&>(x_1[r][i]), reinterpret_cast<Vc::double_v&>(x_2[r][i]), reinterpret_cast<Vc::double_v&>(y[thread_id][1][i]), mask);
+						kernel_simd_class_vc(reinterpret_cast<Vc::double_v&>(x_1[r][i]), reinterpret_cast<Vc::double_v&>(x_2[r][i]), reinterpret_cast<Vc::double_v&>(y[thread_id][1][i]), mask);
 					}
 				#else
 					// in the unconditional case the mask is allways TRUE except for the loop remainder case.
@@ -286,7 +286,7 @@ int main(int argc, char **argv)
 					// perform all loop iterations with i < 'n_floor = largest multiple of SIMD_WIDTH_LOGICAL_REAL64 lower or equal to n'.					
 					for (std::int32_t i = 0; i < n_floor; i += SIMD_WIDTH_NATIVE_REAL64)
 						#pragma noinline
-						kernel_simd_class_vectorization(reinterpret_cast<Vc::double_v&>(x_1[r][i]), reinterpret_cast<Vc::double_v&>(x_2[r][i]), reinterpret_cast<Vc::double_v&>(y[thread_id][1][i]), m);
+						kernel_simd_class_vc(reinterpret_cast<Vc::double_v&>(x_1[r][i]), reinterpret_cast<Vc::double_v&>(x_2[r][i]), reinterpret_cast<Vc::double_v&>(y[thread_id][1][i]), m);
 					// now perform the remainder loop.					
 					bool mask_array[SIMD_WIDTH_NATIVE_REAL64];
 					for (std::int32_t i = n_floor, ii = 0; i < n_padded; ++i, ++ii)
@@ -294,7 +294,7 @@ int main(int argc, char **argv)
 					m.load(mask_array);
 					for (std::int32_t i = n_floor; i < n; i += SIMD_WIDTH_NATIVE_REAL64)
 						#pragma noinline
-						kernel_simd_class_vectorization(reinterpret_cast<Vc::double_v&>(x_1[r][i]), reinterpret_cast<Vc::double_v&>(x_2[r][i]), reinterpret_cast<Vc::double_v&>(y[thread_id][1][i]), m);
+						kernel_simd_class_vc(reinterpret_cast<Vc::double_v&>(x_1[r][i]), reinterpret_cast<Vc::double_v&>(x_2[r][i]), reinterpret_cast<Vc::double_v&>(y[thread_id][1][i]), m);
 				#endif
 			#else
 				for (std::int32_t i = 0; i < n; ++i)
@@ -386,7 +386,7 @@ int main(int argc, char **argv)
 		
 		#if defined(CONDITIONAL_CALL)
 			_mm_free(m[r]);
-			#if defined(MANUAL_VECTORIZATION) || defined(SIMD_CLASS_VECTORIZATION)
+			#if defined(INTRINSICS) || defined(SIMD_CLASS_VC)
 				_mm_free(m_vec[r]);
 			#endif
 		#endif

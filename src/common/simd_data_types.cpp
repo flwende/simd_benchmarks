@@ -8,7 +8,7 @@
 // function definitions for simd log and exp.
 // GNU requires glibc-2.22 or higher (libmvec) to vectorize calls to log and exp within the OpenMP 4.x loops.
 // when inlined, these function calls should disappear, leaving only the call to simd log and exp.
-#if defined(MANUAL_VECTORIZATION) && defined(IMPLEMENTATION_REQUIRED)
+#if defined(INTRINSICS) && defined(IMPLEMENTATION_REQUIRED)
 VEC_REAL64 simd_log(const VEC_REAL64& x_1)
 {
 	VEC_REAL64 y;

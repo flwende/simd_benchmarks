@@ -5,7 +5,7 @@
 
 #include "common/kernel.hpp"
 
-void kernel_simd_class_vectorization(const Vc::double_v& x_1, const Vc::double_v& x_2, Vc::double_v& y, Vc::double_m& mask_0)
+void kernel_simd_class_vc(const Vc::double_v& x_1, const Vc::double_v& x_2, Vc::double_v& y, Vc::double_m& mask_0)
 {
 	Vc::double_m lanes_active { mask_0 }; // set to 0 if lane returns, needs to be used in all assignments.
 	// if (x_1 < 0.0)

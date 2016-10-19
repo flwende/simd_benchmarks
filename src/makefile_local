@@ -2,10 +2,10 @@
 # e.g. make -C simple -f ../makefile_local.gnu PREFIX=simple clean
 
 ifeq ($(VC_AVAILABLE), yes)
-all : $(PREFIX)_simd_class_vectorization.x $(PREFIX)_reference.x $(PREFIX)_explicit_vectorization.x $(PREFIX)_enhanced_explicit_vectorization.x $(PREFIX)_manual_vectorization.x
+all : $(PREFIX)_simd_class_vc.x $(PREFIX)_reference.x $(PREFIX)_explicit_vectorization.x $(PREFIX)_enhanced_explicit_vectorization.x $(PREFIX)_intrinsics.x
 	rm -f $(PREFIX)_*.o
 else
-all : $(PREFIX)_reference.x $(PREFIX)_explicit_vectorization.x $(PREFIX)_enhanced_explicit_vectorization.x $(PREFIX)_manual_vectorization.x
+all : $(PREFIX)_reference.x $(PREFIX)_explicit_vectorization.x $(PREFIX)_enhanced_explicit_vectorization.x $(PREFIX)_intrinsics.x
 	rm -f $(PREFIX)_*.o
 endif
 	
@@ -21,12 +21,12 @@ $(PREFIX)_enhanced_explicit_vectorization.x : $(PREFIX)_kernel_enhanced_explicit
 	$(CXX) $(CXXFLAGS) -DENHANCED_EXPLICIT_VECTORIZATION -o $@_benchmark.o -c $(SRC_DIR)/common/benchmark.cpp
 	$(LD) -o $@ $? $@_benchmark.o $(LDFLAGS)
 
-$(PREFIX)_manual_vectorization.x : $(PREFIX)_kernel_manual_vectorization.o $(PREFIX)_kernel_reference.o
-	$(CXX) $(CXXFLAGS) -DMANUAL_VECTORIZATION -o $@_benchmark.o -c $(SRC_DIR)/common/benchmark.cpp
+$(PREFIX)_intrinsics.x : $(PREFIX)_kernel_intrinsics.o $(PREFIX)_kernel_reference.o
+	$(CXX) $(CXXFLAGS) -DINTRINSICS -o $@_benchmark.o -c $(SRC_DIR)/common/benchmark.cpp
 	$(LD) -o $@ $? $@_benchmark.o $(LDFLAGS)
 
-$(PREFIX)_simd_class_vectorization.x : $(PREFIX)_kernel_simd_class_vectorization.o $(PREFIX)_kernel_reference.o
-	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_VECTORIZATION -I$(VC_ROOT)/include -o $@_benchmark.o -c $(SRC_DIR)/common/benchmark.cpp
+$(PREFIX)_simd_class_vc.x : $(PREFIX)_kernel_simd_class_vc.o $(PREFIX)_kernel_reference.o
+	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_VC -I$(VC_ROOT)/include -o $@_benchmark.o -c $(SRC_DIR)/common/benchmark.cpp
 ifeq ($(PLATFORM), mic)
 	$(LD) -o $@ $? $@_benchmark.o $(LDFLAGS) $(VC_ROOT)/lib/libVc_MIC.a
 else
@@ -43,11 +43,11 @@ $(PREFIX)_kernel_explicit_vectorization.o : kernel_explicit_vectorization.cpp
 $(PREFIX)_kernel_enhanced_explicit_vectorization.o : kernel_enhanced_explicit_vectorization.cpp
 	$(CXX) $(CXXFLAGS) -DENHANCED_EXPLICIT_VECTORIZATION -o $@ -c $<
 
-$(PREFIX)_kernel_manual_vectorization.o : kernel_manual_vectorization.cpp
-	$(CXX) $(CXXFLAGS) -DMANUAL_VECTORIZATION -o $@ -c $<
+$(PREFIX)_kernel_intrinsics.o : kernel_intrinsics.cpp
+	$(CXX) $(CXXFLAGS) -DINTRINSICS -o $@ -c $<
 
-$(PREFIX)_kernel_simd_class_vectorization.o : kernel_simd_class_vectorization.cpp
-	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_VECTORIZATION -I$(VC_ROOT)/include -o $@ -c $<
+$(PREFIX)_kernel_simd_class_vc.o : kernel_simd_class_vc.cpp
+	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_VC -I$(VC_ROOT)/include -o $@ -c $<
 
 clean :
 	rm -f *.o *.x

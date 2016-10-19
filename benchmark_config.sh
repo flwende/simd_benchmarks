@@ -5,7 +5,7 @@ function benchmark_config {
 	n=8192
 	funcs="SQRT_SQRT LOG_LOG EXP_EXP"
 	executables="simple conditional_math_call early_return nested_branching while_loop"
-	versions="reference explicit_vectorization enhanced_explicit_vectorization manual_vectorization simd_class_vectorization"
+	versions="reference explicit_vectorization enhanced_explicit_vectorization intrinsics simd_class_vc"
 }
 
 function benchmark_config_no_intrin {

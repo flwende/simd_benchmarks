@@ -8,7 +8,7 @@
 // maximum number of while loop iterations.
 #define Y_STOP 10.0
 
-void kernel_simd_class_vectorization(const Vc::double_v& x_1, const Vc::double_v& x_2, Vc::double_v& y, Vc::double_m& mask_0)
+void kernel_simd_class_vc(const Vc::double_v& x_1, const Vc::double_v& x_2, Vc::double_v& y, Vc::double_m& mask_0)
 {
 	Vc::double_v temp_y { Vc::Zero };
 	Vc::double_v x_1_plus_x_2 { x_1 + x_2 };
