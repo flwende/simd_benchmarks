@@ -1,13 +1,22 @@
 # to be called by another makefile
 # e.g. make -C simple -f ../makefile_local.gnu PREFIX=simple clean
 
+
 ifeq ($(VC_AVAILABLE), yes)
-all : $(PREFIX)_simd_class_vc.x $(PREFIX)_reference.x $(PREFIX)_explicit_vectorization.x $(PREFIX)_enhanced_explicit_vectorization.x $(PREFIX)_intrinsics.x
-	rm -f $(PREFIX)_*.o
+	conditional_simd_class_vc_x = $(PREFIX)_simd_class_vc.x
 else
-all : $(PREFIX)_reference.x $(PREFIX)_explicit_vectorization.x $(PREFIX)_enhanced_explicit_vectorization.x $(PREFIX)_intrinsics.x
-	rm -f $(PREFIX)_*.o
+	conditional_simd_class_vc_x = $()
 endif
+
+ifeq ($(UMESIMD_AVAILABLE), yes)
+	conditional_simd_class_umesimd_x = $(PREFIX)_simd_class_umesimd.x 
+else
+	conditional_simd_class_umesimd_x = $()
+endif
+
+
+all : $(PREFIX)_reference.x $(PREFIX)_explicit_vectorization.x $(PREFIX)_enhanced_explicit_vectorization.x $(PREFIX)_intrinsics.x $(conditional_simd_class_vc_x) $(conditional_simd_class_umesimd_x)
+	rm -f $(PREFIX)_*.o
 	
 $(PREFIX)_reference.x : $(PREFIX)_kernel_reference.o
 	$(CXX) $(CXXFLAGS) -o $@_benchmark.o -c $(SRC_DIR)/common/benchmark.cpp
@@ -33,6 +42,10 @@ else
 	$(LD) -o $@ $? $@_benchmark.o $(LDFLAGS) $(VC_ROOT)/lib/libVc.a
 endif
 
+$(PREFIX)_simd_class_umesimd.x : $(PREFIX)_kernel_simd_class_umesimd.o $(PREFIX)_kernel_reference.o
+	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_UMDSIMD -I$(UMESIMD_ROOT) -o $@_benchmark.o -c $(SRC_DIR)/common/benchmark.cpp
+	$(LD) -o $@ $? $@_benchmark.o $(LDFLAGS)
+
 
 $(PREFIX)_kernel_reference.o : kernel_reference.cpp
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
@@ -48,6 +61,9 @@ $(PREFIX)_kernel_intrinsics.o : kernel_intrinsics.cpp
 
 $(PREFIX)_kernel_simd_class_vc.o : kernel_simd_class_vc.cpp
 	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_VC -I$(VC_ROOT)/include -o $@ -c $<
+
+$(PREFIX)_kernel_simd_class_umesimd.o : kernel_simd_class_umesimd.cpp
+	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_UMESIMD -I$(UMESIMD_ROOT) -o $@ -c $<
 
 clean :
 	rm -f *.o *.x

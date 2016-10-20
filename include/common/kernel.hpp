@@ -13,6 +13,17 @@
 	#include <Vc/Vc>
 #endif
 
+#if defined(SIMD_CLASS_UMESIMD)
+	#include <UMESimd.h>
+	#if defined(__MIC__) || defined(__AVX512F__)
+		using UMESIMD_Vec = UME::SIMD::SIMDVec_f<double, 8>;
+		using UMESIMD_Mask = UME::SIMD::SIMDVecMask<8>;
+	#elif defined(__AVX__) || defined(__AVX2__)
+		using UMESIMD_Vec = UME::SIMD::SIMDVec_f<double, 4>;
+		using UMESIMD_Mask = UME::SIMD::SIMDVecMask<4>;
+	#endif
+#endif
+
 #include "common/simd_data_types.hpp"
 
 // setup function macros to alias different math-function calls. 
@@ -20,56 +31,68 @@
 	#define FUNC_1(X1) std::sqrt(X1)
 	#define SIMD_FUNC_1(X1) SIMD_SQRT_REAL64(X1)
 	#define SIMD_MASK_FUNC_1(X0, M1, X1) SIMD_MASK_SQRT_REAL64(X0, M1, X1)
-	#define SIMD_CLASS_FUNC_1(X1) Vc::sqrt(X1)
+	#define SIMD_CLASS_VC_FUNC_1(X1) Vc::sqrt(X1)
+	#define SIMD_CLASS_UMESIMD_FUNC_1(X1) UME::SIMD::FUNCTIONS::sqrt(X1)
 	#define FUNC_2(X1) std::sqrt(X1)
 	#define SIMD_FUNC_2(X1) SIMD_SQRT_REAL64(X1)
 	#define SIMD_MASK_FUNC_2(X0, M1, X1) SIMD_MASK_SQRT_REAL64(X0, M1, X1)
-	#define SIMD_CLASS_FUNC_2(X1) Vc::sqrt(X1)
+	#define SIMD_CLASS_VC_FUNC_2(X1) Vc::sqrt(X1)
+	#define SIMD_CLASS_UMESIMD_FUNC_2(X1) UME::SIMD::FUNCTIONS::sqrt(X1)
 #elif defined(BENCHMARK_FUNC_SQRT_LOG)
 	#define FUNC_1(X1) std::sqrt(X1)
 	#define SIMD_FUNC_1(X1) SIMD_SQRT_REAL64(X1)
 	#define SIMD_MASK_FUNC_1(X0, M1, X1) SIMD_MASK_SQRT_REAL64(X0, M1, X1)
-	#define SIMD_CLASS_FUNC_1(X1) Vc::sqrt(X1)
+	#define SIMD_CLASS_VC_FUNC_1(X1) Vc::sqrt(X1)
+	#define SIMD_CLASS_UMESIMD_FUNC_1(X1) UME::SIMD::FUNCTIONS::sqrt(X1)
 	#define FUNC_2(X1) std::log(X1)
 	#define SIMD_FUNC_2(X1) SIMD_LOG_REAL64(X1)
 	#define SIMD_MASK_FUNC_2(X0, M1, X1) SIMD_MASK_LOG_REAL64(X0, M1, X1)
-	#define SIMD_CLASS_FUNC_2(X1) Vc::log(X1)
+	#define SIMD_CLASS_VC_FUNC_1(X1) Vc::sqrt(X1)
+	#define SIMD_CLASS_UMESIMD_FUNC_1(X1) UME::SIMD::FUNCTIONS::sqrt(X1)
 #elif defined(BENCHMARK_FUNC_SQRT_EXP)
 	#define FUNC_1(X1) std::sqrt(X1)
 	#define SIMD_FUNC_1(X1) SIMD_SQRT_REAL64(X1)
 	#define SIMD_MASK_FUNC_1(X0, M1, X1) SIMD_MASK_SQRT_REAL64(X0, M1, X1)
-	#define SIMD_CLASS_FUNC_1(X1) Vc::sqrt(X1)
+	#define SIMD_CLASS_VC_FUNC_1(X1) Vc::sqrt(X1)
+	#define SIMD_CLASS_UMESIMD_FUNC_1(X1) UME::SIMD::FUNCTIONS::sqrt(X1)
 	#define FUNC_2(X1) std::exp(X1)
 	#define SIMD_FUNC_2(X1) SIMD_EXP_REAL64(X1)
 	#define SIMD_MASK_FUNC_2(X0, M1, X1) SIMD_MASK_EXP_REAL64(X0, M1, X1)
-	#define SIMD_CLASS_FUNC_2(X1) Vc::exp(X1)
+	#define SIMD_CLASS_VC_FUNC_2(X1) Vc::exp(X1)
+	#define SIMD_CLASS_UMESIMD_FUNC_2(X1) UME::SIMD::FUNCTIONS::exp(X1)
 #elif defined(BENCHMARK_FUNC_LOG_LOG)
 	#define FUNC_1(X1) std::log(X1)
 	#define SIMD_FUNC_1(X1) SIMD_LOG_REAL64(X1)
 	#define SIMD_MASK_FUNC_1(X0, M1, X1) SIMD_MASK_LOG_REAL64(X0, M1, X1)
-	#define SIMD_CLASS_FUNC_1(X1) Vc::log(X1)
+	#define SIMD_CLASS_VC_FUNC_1(X1) Vc::log(X1)
+	#define SIMD_CLASS_UMESIMD_FUNC_1(X1) UME::SIMD::FUNCTIONS::log(X1)
 	#define FUNC_2(X1) std::log(X1)
 	#define SIMD_FUNC_2(X1) SIMD_LOG_REAL64(X1)
 	#define SIMD_MASK_FUNC_2(X0, M1, X1) SIMD_MASK_LOG_REAL64(X0, M1, X1)
-	#define SIMD_CLASS_FUNC_2(X1) Vc::log(X1)
+	#define SIMD_CLASS_VC_FUNC_2(X1) Vc::log(X1)
+	#define SIMD_CLASS_UMESIMD_FUNC_2(X1) UME::SIMD::FUNCTIONS::log(X1)
 #elif defined(BENCHMARK_FUNC_LOG_EXP)
 	#define FUNC_1(X1) std::log(X1)
 	#define SIMD_FUNC_1(X1) SIMD_LOG_REAL64(X1)
 	#define SIMD_MASK_FUNC_1(X0, M1, X1) SIMD_MASK_LOG_REAL64(X0, M1, X1)
-	#define SIMD_CLASS_FUNC_1(X1) Vc::log(X1)
+	#define SIMD_CLASS_VC_FUNC_1(X1) Vc::log(X1)
+	#define SIMD_CLASS_UMESIMD_FUNC_1(X1) UME::SIMD::FUNCTIONS::log(X1)
 	#define FUNC_2(X1) std::exp(X1)
 	#define SIMD_FUNC_2(X1) SIMD_EXP_REAL64(X1)
 	#define SIMD_MASK_FUNC_2(X0, M1, X1) SIMD_MASK_EXP_REAL64(X0, M1, X1)
-	#define SIMD_CLASS_FUNC_2(X1) Vc::exp(X1)
+	#define SIMD_CLASS_VC_FUNC_2(X1) Vc::exp(X1)
+	#define SIMD_CLASS_UMESIMD_FUNC_2(X1) UME::SIMD::FUNCTIONS::exp(X1)
 #elif defined(BENCHMARK_FUNC_EXP_EXP)
 	#define FUNC_1(X1) std::exp(X1)
 	#define SIMD_FUNC_1(X1) SIMD_EXP_REAL64(X1)
 	#define SIMD_MASK_FUNC_1(X0, M1, X1) SIMD_MASK_EXP_REAL64(X0, M1, X1)
-	#define SIMD_CLASS_FUNC_1(X1) Vc::exp(X1)
+	#define SIMD_CLASS_VC_FUNC_1(X1) Vc::exp(X1)
+	#define SIMD_CLASS_UMESIMD_FUNC_1(X1) UME::SIMD::FUNCTIONS::exp(X1)
 	#define FUNC_2(X1) std::exp(X1)
 	#define SIMD_FUNC_2(X1) SIMD_EXP_REAL64(X1)
 	#define SIMD_MASK_FUNC_2(X0, M1, X1) SIMD_MASK_EXP_REAL64(X0, M1, X1)
-	#define SIMD_CLASS_FUNC_2(X1) Vc::exp(X1)
+	#define SIMD_CLASS_VC_FUNC_2(X1) Vc::exp(X1)
+	#define SIMD_CLASS_UMESIMD_FUNC_2(X1) UME::SIMD::FUNCTIONS::exp(X1)
 #endif
 
 // reference kernel prototype.
@@ -99,6 +122,9 @@ void kernel_reference(const double& x_1, const double& x_2, double& y);
 #elif defined(SIMD_CLASS_VC)
 	// simd class vectorization with VC.
 	void kernel_simd_class_vc(const Vc::double_v& x_1, const Vc::double_v& x_2, Vc::double_v& y, Vc::double_m& m);
+#elif defined(SIMD_CLASS_UMESIMD)
+	// simd class vectorization with UMESIMD.
+	void kernel_simd_class_umesimd(const UMESIMD_Vec& x_1, const UMESIMD_Vec& x_2, UMESIMD_Vec& y, UMESIMD_Mask& m);
 #endif
 
 #endif

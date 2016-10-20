@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# export VC_ROOT=${HOME}/opt/Vc-yyy
-# export VC_AVAILABLE=yes
-export VC_AVAILABLE=no
-export PLATFORM=x86
-
-make -f makefile.intel clean
-make -f makefile.intel $1 $2 $3
