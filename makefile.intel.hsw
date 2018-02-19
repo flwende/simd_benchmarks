@@ -1,0 +1,26 @@
+CXX = icpc
+LD = icpc
+CXXFLAGS = -O3 -qopenmp -std=c++11 -fp-model fast=2 -qopt-report=5 -I$(CURDIR)/include
+LDFLAGS = -qopenmp
+
+FUNC = EXP_EXP
+SIMDWIDTH = 4
+
+CXXFLAGS += -xcore-avx2 -fma -D__AVX2__
+CXXFLAGS += -DBENCHMARK_FUNC_$(FUNC)
+CXXFLAGS += -DSIMD_WIDTH_LOGICAL_REAL64=$(SIMDWIDTH)
+CXXFLAGS += -DUME_USE_SVML
+CXXFLAGS += -DDEBUG
+
+LDFLAGS += -xcore-avx2
+
+BIN_DIR = $(CURDIR)/bin.intel
+
+# export all variables for subsequent make calls
+export
+
+all : 
+	make -C src -f makefile_global
+
+clean :
+	make -C src -f makefile_global clean
