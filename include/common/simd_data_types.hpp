@@ -74,13 +74,14 @@
 #endif
 
 #if defined(ENHANCED_EXPLICIT_VECTORIZATION) || defined(INTRINSICS)
-	
-	#if !defined(__INTEL_COMPILER)
-	// online defined by Intel Compiler
-	inline int _mm512_mask2int(__mmask16 k1) {
-		return static_cast<int>(k1);
-	}
-	#endif
+
+// NOTE: not needed anymore	LLVM 5
+//	#if !defined(__INTEL_COMPILER)
+//	// online defined by Intel Compiler
+//	inline int _mm512_mask2int(__mmask16 k1) {
+//		return static_cast<int>(k1);
+//	}
+//	#endif
 	
 	// enhanced explicit vectorization: user defined vector data types.
 	// we use the logical simdwidth here to allow for vector loop unrolling with OpenMP 4.x.
