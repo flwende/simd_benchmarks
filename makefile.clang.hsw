@@ -1,6 +1,6 @@
 CXX = clang++
 LD = clang++
-CXXFLAGS = -O3 -std=c++11 -ftree-vectorize -ffast-math -fopenmp=libomp -I$(CURDIR)/include
+CXXFLAGS = -O3 -std=c++14 -ftree-vectorize -ffast-math -fopenmp=libomp -I$(CURDIR)/include
 LDFLAGS = -fopenmp=libomp -lm
 
 FUNC = EXP_EXP

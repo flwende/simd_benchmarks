@@ -1,7 +1,7 @@
 CXX = CC
 LD = CC
 
-CXXFLAGS = -O3 -hstd=c++11 -homp -hvector3 -hfp3 -hipa5 -hlist=a -hintrinsics -I$(CURDIR)/include
+CXXFLAGS = -O3 -hstd=c++14 -homp -hvector3 -hfp3 -hipa5 -hlist=a -hintrinsics -I$(CURDIR)/include
 LDFLAGS = 
 
 FUNC = SQRT_SQRT

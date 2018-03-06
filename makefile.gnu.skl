@@ -1,7 +1,7 @@
 CXX = g++
 LD = g++
 
-CXXFLAGS = -O3 -fopenmp -std=c++11 -ftree-vectorize -ffast-math -fopt-info-vec-optimized -I$(CURDIR)/include
+CXXFLAGS = -O3 -fopenmp -std=c++14 -ftree-vectorize -ffast-math -fopt-info-vec-optimized -I$(CURDIR)/include
 LDFLAGS = -fopenmp
 
 ifdef GLIBC_ROOT
