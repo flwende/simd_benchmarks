@@ -3,7 +3,7 @@ LD = clang++
 CXXFLAGS = -O3 -std=c++11 -ftree-vectorize -ffast-math -fopenmp=libomp -I$(CURDIR)/include
 LDFLAGS = -fopenmp=libomp -lm
 
-FUNC = SQRT_SQRT
+FUNC = EXP_EXP
 SIMDWIDTH = 8
 
 CXXFLAGS += -mavx512f -mfma -D__AVX512F__
@@ -11,6 +11,9 @@ CXXFLAGS += -D__CLANG_COMPILER__
 CXXFLAGS += -DBENCHMARK_FUNC_$(FUNC)
 CXXFLAGS += -DSIMD_WIDTH_LOGICAL_REAL64=$(SIMDWIDTH)
 CXXFLAGS += -DDEBUG
+
+# add gcc path from environment
+CXXFLAGS += $(shell GCC_BIN=$$(dirname $$(which g++)); if [[ ! -z $$GCC_BIN ]]; then GCC_DIR=$$GCC_BIN/..; echo -n "--gcc-toolchain=$$GCC_DIR"; fi;)
 
 BIN_DIR = $(CURDIR)/bin.clang.knl
 

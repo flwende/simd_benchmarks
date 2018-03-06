@@ -9,7 +9,7 @@ else
     LDFLAGS = -fopenmp -lm
 endif
 
-FUNC = SQRT_SQRT
+FUNC = EXP_EXP
 SIMDWIDTH = 8
 
 CXXFLAGS += -mavx512f -mfma -D__AVX512F__

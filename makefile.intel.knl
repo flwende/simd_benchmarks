@@ -3,7 +3,7 @@ LD = icpc
 CXXFLAGS = -O3 -qopenmp -std=c++11 -fp-model fast=2 -qopt-report=5 -I$(CURDIR)/include
 LDFLAGS = -qopenmp
 
-FUNC = SQRT_SQRT
+FUNC = EXP_EXP
 SIMDWIDTH = 8
 
 CXXFLAGS += -xmic-avx512 -fma -D__AVX512F__
