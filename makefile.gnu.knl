@@ -9,7 +9,7 @@ ifdef GLIBC_ROOT
     LDFLAGS += -Wl,-rpath,$(GLIBC_ROOT)/lib -Wl,-dynamic-linker,$(GLIBC_ROOT)/lib/ld-linux-x86-64.so.2 -L$(GLIBC_ROOT)/lib
 endif
 
-LDFLAGS += -lm
+LDFLAGS += -L$(MKLROOT)/../compiler/lib/intel64 -liomp5 -lm
 
 FUNC = EXP_EXP
 SIMDWIDTH = 8
