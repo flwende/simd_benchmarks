@@ -38,6 +38,10 @@
 	#define RUNS 10
 #endif
 
+#if defined(SIMD_CLASS_VC) || defined(SIMD_CLASS_VCL) || defined(SIMD_CLASS_UMESIMD)
+	#define SIMD_CLASS
+#endif
+
 int main(int argc, char **argv)
 {
 	// set parameters to default vaules
@@ -82,7 +86,7 @@ int main(int argc, char **argv)
 	#if defined(CONDITIONAL_CALL)
 		#if defined(INTRINSICS)
 			MASK_REAL64* m_vec[RUNS];
-		#elif defined(SIMD_CLASS_VC)
+		#elif defined(SIMD_CLASS)
 			bool* m_vec[RUNS];
 		#endif
 			BOOL* m[RUNS];
@@ -125,7 +129,7 @@ int main(int argc, char **argv)
 				std::uint64_t* ptr_m_vec = reinterpret_cast<std::uint64_t*>(m_vec[r]);
 				for (std::int32_t i = 0; i < n_padded; ++i)
 					ptr_m_vec[i] = (m[r][i] == TRUE ? SIMD_TRUE : SIMD_FALSE);
-			#elif defined(SIMD_CLASS_VC)
+			#elif defined(SIMD_CLASS)
 				m_vec[r] = reinterpret_cast<bool*>(_mm_malloc(n_padded * sizeof(bool), ALIGNMENT));
 				for (std::int32_t i = 0; i < n_padded; ++i)
 					m_vec[r][i] = (m[r][i] == TRUE ? true : false);
@@ -245,13 +249,13 @@ int main(int argc, char **argv)
 				#if defined(CONDITIONAL_CALL)
 					for (std::int32_t i = 0, j = 0; i < n; i += SIMD_WIDTH_NATIVE_REAL64, ++j)
 						#pragma noinline
-		       				kernel_intrinsics(reinterpret_cast<VEC_REAL64&>(x_1[r][i]), reinterpret_cast<VEC_REAL64&>(x_2[r][i]), reinterpret_cast<VEC_REAL64&>(y[thread_id][1][i]), m_vec[r][j]);
+						kernel_intrinsics(reinterpret_cast<VEC_REAL64&>(x_1[r][i]), reinterpret_cast<VEC_REAL64&>(x_2[r][i]), reinterpret_cast<VEC_REAL64&>(y[thread_id][1][i]), m_vec[r][j]);
 				#else
 					// in the unconditional case the mask is allways TRUE except for the loop remainder case.
 					MASK_REAL64 m = SIMD_ALL_LANES_ACTIVE_MASK_REAL64;
-	      				std::int32_t n_floor = (n / SIMD_WIDTH_NATIVE_REAL64) * SIMD_WIDTH_NATIVE_REAL64;
+					std::int32_t n_floor = (n / SIMD_WIDTH_NATIVE_REAL64) * SIMD_WIDTH_NATIVE_REAL64;
 					// perform all loop iterations with i < 'n_floor = largest multiple of SIMD_WIDTH_LOGICAL_REAL64 lower or equal to n'.
-			      		for (std::int32_t i = 0; i < n_floor; i += SIMD_WIDTH_NATIVE_REAL64)
+					for (std::int32_t i = 0; i < n_floor; i += SIMD_WIDTH_NATIVE_REAL64)
 						#pragma noinline
 						kernel_intrinsics(reinterpret_cast<VEC_REAL64&>(x_1[r][i]), reinterpret_cast<VEC_REAL64&>(x_2[r][i]), reinterpret_cast<VEC_REAL64&>(y[thread_id][1][i]), m);
 					// now perform the remainder loop.
@@ -268,8 +272,8 @@ int main(int argc, char **argv)
 					for (std::int32_t i = n_floor; i < n; i += SIMD_WIDTH_NATIVE_REAL64)
 						#pragma noinline
 						kernel_intrinsics(reinterpret_cast<VEC_REAL64&>(x_1[r][i]), reinterpret_cast<VEC_REAL64&>(x_2[r][i]), reinterpret_cast<VEC_REAL64&>(y[thread_id][1][i]), m);
-		       		#endif
-       			// manual vectorization with Vc C++ simd class.
+					#endif
+			// manual vectorization with Vc C++ simd class.
 			#elif defined(SIMD_CLASS_VC)
 				#if defined(CONDITIONAL_CALL)
 					Vc::double_m mask;
@@ -296,6 +300,61 @@ int main(int argc, char **argv)
 						#pragma noinline
 						kernel_simd_class_vc(reinterpret_cast<Vc::double_v&>(x_1[r][i]), reinterpret_cast<Vc::double_v&>(x_2[r][i]), reinterpret_cast<Vc::double_v&>(y[thread_id][1][i]), m);
 				#endif
+// TODO: call VCL kernels
+			#elif defined(SIMD_CLASS_VCL)
+				#if defined(CONDITIONAL_CALL)
+					Vc::double_m mask;
+					for (std::int32_t i = 0; i < n; i += SIMD_WIDTH_NATIVE_REAL64)
+					{
+						mask.load(&m_vec[r][i]);
+						#pragma noinline
+						kernel_simd_class_vcl(reinterpret_cast<Vc::double_v&>(x_1[r][i]), reinterpret_cast<Vc::double_v&>(x_2[r][i]), reinterpret_cast<Vc::double_v&>(y[thread_id][1][i]), mask);
+					}
+				#else
+					// in the unconditional case the mask is allways TRUE except for the loop remainder case.
+					Vc::double_m m(Vc::One);
+					std::int32_t n_floor = (n / SIMD_WIDTH_NATIVE_REAL64) * SIMD_WIDTH_NATIVE_REAL64;
+					// perform all loop iterations with i < 'n_floor = largest multiple of SIMD_WIDTH_LOGICAL_REAL64 lower or equal to n'.					
+					for (std::int32_t i = 0; i < n_floor; i += SIMD_WIDTH_NATIVE_REAL64)
+						#pragma noinline
+						kernel_simd_class_vcl(reinterpret_cast<Vc::double_v&>(x_1[r][i]), reinterpret_cast<Vc::double_v&>(x_2[r][i]), reinterpret_cast<Vc::double_v&>(y[thread_id][1][i]), m);
+					// now perform the remainder loop.					
+					bool mask_array[SIMD_WIDTH_NATIVE_REAL64];
+					for (std::int32_t i = n_floor, ii = 0; i < n_padded; ++i, ++ii)
+						mask_array[ii] = (i < n ? true : false);
+					m.load(mask_array);
+					for (std::int32_t i = n_floor; i < n; i += SIMD_WIDTH_NATIVE_REAL64)
+						#pragma noinline
+						kernel_simd_class_vcl(reinterpret_cast<Vc::double_v&>(x_1[r][i]), reinterpret_cast<Vc::double_v&>(x_2[r][i]), reinterpret_cast<Vc::double_v&>(y[thread_id][1][i]), m);
+				#endif
+// TODO: call UME-SIMD kernels
+			#elif defined(SIMD_CLASS_UMESIMD)
+				#if defined(CONDITIONAL_CALL)
+					Vc::double_m mask;
+					for (std::int32_t i = 0; i < n; i += SIMD_WIDTH_NATIVE_REAL64)
+					{
+						mask.load(&m_vec[r][i]);
+						#pragma noinline
+						kernel_simd_class_vcl(reinterpret_cast<Vc::double_v&>(x_1[r][i]), reinterpret_cast<Vc::double_v&>(x_2[r][i]), reinterpret_cast<Vc::double_v&>(y[thread_id][1][i]), mask);
+					}
+				#else
+					// in the unconditional case the mask is allways TRUE except for the loop remainder case.
+					Vc::double_m m(Vc::One);
+					std::int32_t n_floor = (n / SIMD_WIDTH_NATIVE_REAL64) * SIMD_WIDTH_NATIVE_REAL64;
+					// perform all loop iterations with i < 'n_floor = largest multiple of SIMD_WIDTH_LOGICAL_REAL64 lower or equal to n'.					
+					for (std::int32_t i = 0; i < n_floor; i += SIMD_WIDTH_NATIVE_REAL64)
+						#pragma noinline
+						kernel_simd_class_vcl(reinterpret_cast<Vc::double_v&>(x_1[r][i]), reinterpret_cast<Vc::double_v&>(x_2[r][i]), reinterpret_cast<Vc::double_v&>(y[thread_id][1][i]), m);
+					// now perform the remainder loop.					
+					bool mask_array[SIMD_WIDTH_NATIVE_REAL64];
+					for (std::int32_t i = n_floor, ii = 0; i < n_padded; ++i, ++ii)
+						mask_array[ii] = (i < n ? true : false);
+					m.load(mask_array);
+					for (std::int32_t i = n_floor; i < n; i += SIMD_WIDTH_NATIVE_REAL64)
+						#pragma noinline
+						kernel_simd_class_vcl(reinterpret_cast<Vc::double_v&>(x_1[r][i]), reinterpret_cast<Vc::double_v&>(x_2[r][i]), reinterpret_cast<Vc::double_v&>(y[thread_id][1][i]), m);
+				#endif
+
 			#else
 				for (std::int32_t i = 0; i < n; ++i)
 					#if defined(CONDITIONAL_CALL)
@@ -346,7 +405,7 @@ int main(int argc, char **argv)
 			{
 				time_mean = time_min = time_max = time[0][0];
 			}
-		  	// print timings.
+			// print timings.
 			std::cout << "# timings per loop iteration:" << std::endl;
 			std::cout << "# mean\t\terr\t\tmin\t\tmax" << std::endl;
 			std::cout << time_mean << "\t" << time_err << "\t" << time_min << "\t" << time_max << std::endl;
@@ -386,7 +445,7 @@ int main(int argc, char **argv)
 		
 		#if defined(CONDITIONAL_CALL)
 			_mm_free(m[r]);
-			#if defined(INTRINSICS) || defined(SIMD_CLASS_VC)
+			#if defined(INTRINSICS) || defined(SIMD_CLASS)
 				_mm_free(m_vec[r]);
 			#endif
 		#endif
