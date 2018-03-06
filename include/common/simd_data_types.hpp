@@ -11,6 +11,14 @@
 #include <immintrin.h>
 
 #if defined(__MIC__) || defined(__AVX512F__)
+	#warning "Compiling for 512-bit SIMD vectors"
+#elif defined(__AVX__) || defined(__AVX2__)
+	#warning "Compiling for 256-bit SIMD vectors"
+#else
+	#warning "None of AVX|AVX2|AVX512F|MIC was found."
+#endif
+
+#if defined(__MIC__) || defined(__AVX512F__)
 	#define SIMD_512
 	#define ALIGNMENT (64)
 	// the simdwidth given by the native size of the simd registers: for 64-bit words.
@@ -141,10 +149,24 @@
 		#define SIMD_ABS_REAL64(X1) SIMD_CAST_REAL64_INT64(SIMD_AND_INT64(SIMD_CAST_INT64_REAL64(X1), SIMD_SET1_INT64(0x7FFFFFFFFFFFFFFF)))
 		#define SIMD_SQRT_REAL64(X1) _mm512_sqrt_pd(X1)
 		#define SIMD_MASK_SQRT_REAL64(X0, M1, X1) _mm512_mask_sqrt_pd(X0, M1, X1)
-		#define SIMD_LOG_REAL64(X1) _mm512_log_pd(X1)
-		#define SIMD_MASK_LOG_REAL64(X0, M1, X1) _mm512_mask_log_pd(X0, M1, X1)
-		#define SIMD_EXP_REAL64(X1) _mm512_exp_pd(X1)
-		#define SIMD_MASK_EXP_REAL64(X0, M1, X1) _mm512_mask_exp_pd(X0, M1, X1)
+		#if defined(__INTEL_COMPILER)
+			// simd function calls to exp and log via _mm512_[log,exp]_pd is specific to Intel.
+			#define SIMD_LOG_REAL64(X1) _mm512_log_pd(X1)
+			#define SIMD_MASK_LOG_REAL64(X0, M1, X1) _mm512_mask_log_pd(X0, M1, X1)
+			#define SIMD_EXP_REAL64(X1) _mm512_exp_pd(X1)
+			#define SIMD_MASK_EXP_REAL64(X0, M1, X1) _mm512_mask_exp_pd(X0, M1, X1)
+		#else
+			#define IMPLEMENTATION_REQUIRED
+			// GNU compiler has no _mm512_[log,exp]_pd.
+			VEC_REAL64 simd_log(const VEC_REAL64& x1);
+			VEC_REAL64 simd_mask_log(const VEC_REAL64& x0, const MASK_REAL64& mask, const VEC_REAL64& x1);
+			VEC_REAL64 simd_exp(const VEC_REAL64& x1);
+			VEC_REAL64 simd_mask_exp(const VEC_REAL64& x0, const MASK_REAL64& mask, const VEC_REAL64& x1);
+			#define SIMD_LOG_REAL64(X1) simd_log(X1)
+			#define SIMD_MASK_LOG_REAL64(X0, M1, X1) simd_mask_log(X0, M1, X1)
+			#define SIMD_EXP_REAL64(X1) simd_exp(X1)
+			#define SIMD_MASK_EXP_REAL64(X0, M1, X1) simd_mask_exp(X0, M1, X1)
+		#endif	
 	#elif defined(SIMD_256)
 		#define VEC_REAL64 __m256d
 		#define MASK_REAL64 __m256d
