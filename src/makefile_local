@@ -8,18 +8,24 @@ else
 	conditional_simd_class_vc_x = $()
 endif
 
+ifeq ($(VCL_AVAILABLE), yes)
+	conditional_simd_class_vcl_x = $(PREFIX)_simd_class_vcl.x 
+else
+	conditional_simd_class_vcl_x = $()
+endif
+
 ifeq ($(UMESIMD_AVAILABLE), yes)
 	conditional_simd_class_umesimd_x = $(PREFIX)_simd_class_umesimd.x 
 else
 	conditional_simd_class_umesimd_x = $()
 endif
 
-
-all : $(PREFIX)_reference.x $(PREFIX)_explicit_vectorization.x $(PREFIX)_enhanced_explicit_vectorization.x $(PREFIX)_intrinsics.x $(conditional_simd_class_vc_x) $(conditional_simd_class_umesimd_x)
+all : $(PREFIX)_reference.x $(PREFIX)_explicit_vectorization.x $(PREFIX)_enhanced_explicit_vectorization.x $(PREFIX)_intrinsics.x $(conditional_simd_class_vc_x) $(conditional_simd_class_vcl_x) $(conditional_simd_class_umesimd_x)
 	rm -f $(PREFIX)_*.o
 	
 $(PREFIX)_reference.x : $(PREFIX)_kernel_reference.o
 	$(CXX) $(CXXFLAGS) -o $@_benchmark.o -c $(SRC_DIR)/common/benchmark.cpp
+	$(CXX) $(CXXFLAGS) -o $@_benchmark.asm -S $(SRC_DIR)/common/benchmark.cpp
 	$(LD) -o $@ $? $@_benchmark.o $(LDFLAGS)
 
 $(PREFIX)_explicit_vectorization.x : $(PREFIX)_kernel_explicit_vectorization.o $(PREFIX)_kernel_reference.o
@@ -42,28 +48,42 @@ else
 	$(LD) -o $@ $? $@_benchmark.o $(LDFLAGS) $(VC_ROOT)/lib/libVc.a
 endif
 
+$(PREFIX)_simd_class_vcl.x : $(PREFIX)_kernel_simd_class_vcl.o $(PREFIX)_kernel_reference.o
+	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_VCL -I$(VCL_ROOT) -o $@_benchmark.o -c $(SRC_DIR)/common/benchmark.cpp
+	$(LD) -o $@ $? $@_benchmark.o $(LDFLAGS)
+
 $(PREFIX)_simd_class_umesimd.x : $(PREFIX)_kernel_simd_class_umesimd.o $(PREFIX)_kernel_reference.o
-	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_UMDSIMD -I$(UMESIMD_ROOT) -o $@_benchmark.o -c $(SRC_DIR)/common/benchmark.cpp
+	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_UMESIMD -I$(UMESIMD_ROOT) -o $@_benchmark.o -c $(SRC_DIR)/common/benchmark.cpp
 	$(LD) -o $@ $? $@_benchmark.o $(LDFLAGS)
 
 
 $(PREFIX)_kernel_reference.o : kernel_reference.cpp
 	$(CXX) $(CXXFLAGS) -o $@ -c $<
+#	$(CXX) $(CXXFLAGS) -o $@.asm -S $<
 
 $(PREFIX)_kernel_explicit_vectorization.o : kernel_explicit_vectorization.cpp
 	$(CXX) $(CXXFLAGS) -DEXPLICIT_VECTORIZATION -o $@ -c $<
+#	$(CXX) $(CXXFLAGS) -DEXPLICIT_VECTORIZATION -o $@.asm -S $<
 
 $(PREFIX)_kernel_enhanced_explicit_vectorization.o : kernel_enhanced_explicit_vectorization.cpp
 	$(CXX) $(CXXFLAGS) -DENHANCED_EXPLICIT_VECTORIZATION -o $@ -c $<
+#	$(CXX) $(CXXFLAGS) -DENHANCED_EXPLICIT_VECTORIZATION -o $@.asm -S $<
 
 $(PREFIX)_kernel_intrinsics.o : kernel_intrinsics.cpp
 	$(CXX) $(CXXFLAGS) -DINTRINSICS -o $@ -c $<
+#	$(CXX) $(CXXFLAGS) -DINTRINSICS -o $@.asm -S $<
 
 $(PREFIX)_kernel_simd_class_vc.o : kernel_simd_class_vc.cpp
 	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_VC -I$(VC_ROOT)/include -o $@ -c $<
+#	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_VC -I$(VC_ROOT)/include -o $@.asm -S $<
 
 $(PREFIX)_kernel_simd_class_umesimd.o : kernel_simd_class_umesimd.cpp
 	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_UMESIMD -I$(UMESIMD_ROOT) -o $@ -c $<
+#	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_UMESIMD -I$(UMESIMD_ROOT) -o $@.asm -S $<
+
+$(PREFIX)_kernel_simd_class_vcl.o : kernel_simd_class_vcl.cpp
+	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_VCL -I$(VCL_ROOT) -o $@ -c $<
+#	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_VCL -I$(VCL_ROOT) -o $@.asm -S $<
 
 clean :
 	rm -f *.o *.x
