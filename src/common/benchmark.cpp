@@ -303,21 +303,21 @@ int main(int argc, char **argv)
 // TODO: call VCL kernels
 			#elif defined(SIMD_CLASS_VCL)
 				#if defined(CONDITIONAL_CALL)
-					Vc::double_m mask;
+					VCL_Mask mask;
 					for (std::int32_t i = 0; i < n; i += SIMD_WIDTH_NATIVE_REAL64)
 					{
 						mask.load(&m_vec[r][i]);
 						#pragma noinline
-						kernel_simd_class_vcl(reinterpret_cast<Vc::double_v&>(x_1[r][i]), reinterpret_cast<Vc::double_v&>(x_2[r][i]), reinterpret_cast<Vc::double_v&>(y[thread_id][1][i]), mask);
+						kernel_simd_class_vcl(reinterpret_cast<VCL_Vec&>(x_1[r][i]), reinterpret_cast<VCL_Vec&>(x_2[r][i]), reinterpret_cast<VCL_Vec&>(y[thread_id][1][i]), mask);
 					}
 				#else
 					// in the unconditional case the mask is allways TRUE except for the loop remainder case.
-					Vc::double_m m(Vc::One);
+					VCL_Mask m(true);
 					std::int32_t n_floor = (n / SIMD_WIDTH_NATIVE_REAL64) * SIMD_WIDTH_NATIVE_REAL64;
 					// perform all loop iterations with i < 'n_floor = largest multiple of SIMD_WIDTH_LOGICAL_REAL64 lower or equal to n'.					
 					for (std::int32_t i = 0; i < n_floor; i += SIMD_WIDTH_NATIVE_REAL64)
 						#pragma noinline
-						kernel_simd_class_vcl(reinterpret_cast<Vc::double_v&>(x_1[r][i]), reinterpret_cast<Vc::double_v&>(x_2[r][i]), reinterpret_cast<Vc::double_v&>(y[thread_id][1][i]), m);
+						kernel_simd_class_vcl(reinterpret_cast<VCL_Vec&>(x_1[r][i]), reinterpret_cast<VCL_Vec&>(x_2[r][i]), reinterpret_cast<VCL_Vec&>(y[thread_id][1][i]), m);
 					// now perform the remainder loop.					
 					bool mask_array[SIMD_WIDTH_NATIVE_REAL64];
 					for (std::int32_t i = n_floor, ii = 0; i < n_padded; ++i, ++ii)
@@ -325,26 +325,27 @@ int main(int argc, char **argv)
 					m.load(mask_array);
 					for (std::int32_t i = n_floor; i < n; i += SIMD_WIDTH_NATIVE_REAL64)
 						#pragma noinline
-						kernel_simd_class_vcl(reinterpret_cast<Vc::double_v&>(x_1[r][i]), reinterpret_cast<Vc::double_v&>(x_2[r][i]), reinterpret_cast<Vc::double_v&>(y[thread_id][1][i]), m);
+						kernel_simd_class_vcl(reinterpret_cast<VCL_Vec&>(x_1[r][i]), reinterpret_cast<VCL_Vec&>(x_2[r][i]), reinterpret_cast<VCL_Vec&>(y[thread_id][1][i]), m);
 				#endif
 // TODO: call UME-SIMD kernels
 			#elif defined(SIMD_CLASS_UMESIMD)
 				#if defined(CONDITIONAL_CALL)
-					Vc::double_m mask;
+				#warning "Compiling with CONDITIONAL_CALL"
+					UMESIMD_Mask mask;
 					for (std::int32_t i = 0; i < n; i += SIMD_WIDTH_NATIVE_REAL64)
 					{
 						mask.load(&m_vec[r][i]);
 						#pragma noinline
-						kernel_simd_class_vcl(reinterpret_cast<Vc::double_v&>(x_1[r][i]), reinterpret_cast<Vc::double_v&>(x_2[r][i]), reinterpret_cast<Vc::double_v&>(y[thread_id][1][i]), mask);
+						kernel_simd_class_umesimd(reinterpret_cast<UMESIMD_Vec&>(x_1[r][i]), reinterpret_cast<UMESIMD_Vec&>(x_2[r][i]), reinterpret_cast<UMESIMD_Vec&>(y[thread_id][1][i]), mask);
 					}
 				#else
 					// in the unconditional case the mask is allways TRUE except for the loop remainder case.
-					Vc::double_m m(Vc::One);
+					UMESIMD_Mask m(true);
 					std::int32_t n_floor = (n / SIMD_WIDTH_NATIVE_REAL64) * SIMD_WIDTH_NATIVE_REAL64;
 					// perform all loop iterations with i < 'n_floor = largest multiple of SIMD_WIDTH_LOGICAL_REAL64 lower or equal to n'.					
 					for (std::int32_t i = 0; i < n_floor; i += SIMD_WIDTH_NATIVE_REAL64)
 						#pragma noinline
-						kernel_simd_class_vcl(reinterpret_cast<Vc::double_v&>(x_1[r][i]), reinterpret_cast<Vc::double_v&>(x_2[r][i]), reinterpret_cast<Vc::double_v&>(y[thread_id][1][i]), m);
+						kernel_simd_class_umesimd(reinterpret_cast<UMESIMD_Vec&>(x_1[r][i]), reinterpret_cast<UMESIMD_Vec&>(x_2[r][i]), reinterpret_cast<UMESIMD_Vec&>(y[thread_id][1][i]), m);
 					// now perform the remainder loop.					
 					bool mask_array[SIMD_WIDTH_NATIVE_REAL64];
 					for (std::int32_t i = n_floor, ii = 0; i < n_padded; ++i, ++ii)
@@ -352,7 +353,7 @@ int main(int argc, char **argv)
 					m.load(mask_array);
 					for (std::int32_t i = n_floor; i < n; i += SIMD_WIDTH_NATIVE_REAL64)
 						#pragma noinline
-						kernel_simd_class_vcl(reinterpret_cast<Vc::double_v&>(x_1[r][i]), reinterpret_cast<Vc::double_v&>(x_2[r][i]), reinterpret_cast<Vc::double_v&>(y[thread_id][1][i]), m);
+						kernel_simd_class_umesimd(reinterpret_cast<UMESIMD_Vec&>(x_1[r][i]), reinterpret_cast<UMESIMD_Vec&>(x_2[r][i]), reinterpret_cast<UMESIMD_Vec&>(y[thread_id][1][i]), m);
 				#endif
 
 			#else
