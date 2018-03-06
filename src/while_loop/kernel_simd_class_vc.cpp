@@ -13,6 +13,7 @@ void kernel_simd_class_vc(const Vc::double_v& x_1, const Vc::double_v& x_2, Vc::
 	Vc::double_v temp_y { Vc::Zero };
 	Vc::double_v x_1_plus_x_2 { x_1 + x_2 };
 	Vc::double_m lanes_active { m }; // mask for active simd lanes inside the while loop.
+	
 	// while (temp_y < Y_STOP)
 	while (!(lanes_active = lanes_active && (temp_y < Y_STOP)).isEmpty()) // update active lanes with loop condition and update lanes_active for use inside loop body
 	{

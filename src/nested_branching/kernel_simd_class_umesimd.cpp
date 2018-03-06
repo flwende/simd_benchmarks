@@ -21,11 +21,11 @@ void kernel_simd_class_umesimd(const UMESIMD_Vec& x_1, const UMESIMD_Vec& x_2, U
         // if (x_2 > 0.2)
         y[m && m0 && m1] = x_1 + SIMD_CLASS_UMESIMD_FUNC_1(x_2);
         // else if (x_2 < -0.2)
-        y[m && m0 && m2] = x_1 + SIMD_CLASS_UMESIMD_FUNC_1(-1.0 * x_2);
+        y[m && m0 && !m1 && m2] = x_1 - SIMD_CLASS_UMESIMD_FUNC_1(-1.0 * x_2);
     
     // else
         // if (x_1 > 0.2)
         y[m && !m0 && m3] = x_2 + SIMD_CLASS_UMESIMD_FUNC_2(x_1);
         // else if (x_1 < -0.2)
-        y[m && !m0 && m4] = x_2 - SIMD_CLASS_UMESIMD_FUNC_2(-1.0 * x_1);
+        y[m && !m0 && !m3 && m4] = x_2 - SIMD_CLASS_UMESIMD_FUNC_2(-1.0 * x_1);
 }
