@@ -15,7 +15,7 @@ CXXFLAGS += -DDEBUG
 # add gcc path from environment
 CXXFLAGS += $(shell GCC_BIN=$$(dirname $$(which g++)); if [[ ! -z $$GCC_BIN ]]; then GCC_DIR=$$GCC_BIN/..; echo -n "--gcc-toolchain=$$GCC_DIR"; fi;)
 
-BIN_DIR = $(CURDIR)/bin.clang
+BIN_DIR = $(CURDIR)/bin.clang.hsw
 
 # export all variables for subsequent make calls
 export

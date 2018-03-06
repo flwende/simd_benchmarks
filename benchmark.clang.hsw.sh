@@ -5,7 +5,7 @@ source benchmark_config.sh
 
 benchmark_config_hsw
 
-compiler=clang
+compiler=clang.hsw
 
 benchmark "${curdir}" "${n}" "${compiler}" "${simdwidths}" "${funcs}" "${threads}" "${executables}" "${versions}"
 

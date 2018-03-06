@@ -12,7 +12,7 @@ CXXFLAGS += -DBENCHMARK_FUNC_$(FUNC)
 CXXFLAGS += -DSIMD_WIDTH_LOGICAL_REAL64=$(SIMDWIDTH)
 CXXFLAGS += -DDEBUG
 
-BIN_DIR=$(CURDIR)/bin.cray
+BIN_DIR=$(CURDIR)/bin.cray.knl
 
 # export all variables for subsequent make calls
 export

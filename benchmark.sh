@@ -24,7 +24,7 @@ function benchmark {
 	local suffix=$(date +%Y-%m-%d_%H%M%S)
 	local benchdir=${curdir}/results/benchmark.${compiler}.${suffix}
 	mkdir -p ${benchdir}
-	local bindir=${benchdir}/bin
+	local bindir=${benchdir}/bin.${compiler}
 	mkdir -p ${bindir}
 
     for simdwidth in $simdwidths

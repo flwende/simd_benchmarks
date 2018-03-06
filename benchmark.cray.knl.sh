@@ -3,7 +3,6 @@
 source benchmark.sh
 source benchmark_config.sh
 
-benchmark_config_no_intrin
 benchmark_config_knl
 
 compiler=cray.knl

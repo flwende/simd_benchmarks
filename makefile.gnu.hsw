@@ -1,17 +1,20 @@
 CXX = g++
 LD = g++
 
+CXXFLAGS = -O3 -fopenmp -std=c++11 -ftree-vectorize -ffast-math -fopt-info-vec-optimized -I$(CURDIR)/include
+LDFLAGS = -fopenmp
+
+# use custom glibc if set
 ifdef GLIBC_ROOT
-#    CXXFLAGS = -O3 -fopenmp -std=c++11 -ftree-vectorize -ffast-math -fopt-info-vec-optimized -I$(CURDIR)/include -I$(GLIBC_ROOT)/include
+    CXXFLAGS += -I$(GLIBC_ROOT)/include
 #    CXXFLAGS = -O3 -fopenmp -std=c++11 -ftree-vectorize -ffast-math -fopt-info-vec-optimized -nostdinc -nostdinc++ -isystem $(GCC_ROOT)/lib/gcc/x86_64-pc-linux-gnu/6.2.0/include -isystem $(GCC_ROOT)/include/c++/6.2.0/ -isystem $(GCC_ROOT)/include -isystem $(GCC_ROOT)/include/c++/6.2.0/x86_64-pc-linux-gnu -I$(CURDIR)/include -I$(GLIBC_ROOT)/include
-    CXXFLAGS = -O3 -fopenmp -std=c++11 -ftree-vectorize -ffast-math -fopt-info-vec-optimized -nostdinc -nostdinc++ -isystem $(GCC_ROOT)/include/c++/6.2.0 -I $(GCC_ROOT)/include/c++/6.2.0/x86_64-pc-linux-gnu -isystem$(GLIBC_ROOT)/include -I $(GCC_ROOT)/lib/gcc/x86_64-pc-linux-gnu/6.2.0/include  -I$(GCC_ROOT)/include -I/usr/include -I$(CURDIR)/include
+#    CXXFLAGS = -O3 -fopenmp -std=c++11 -ftree-vectorize -ffast-math -fopt-info-vec-optimized -nostdinc -nostdinc++ -isystem $(GCC_ROOT)/include/c++/6.2.0 -I $(GCC_ROOT)/include/c++/6.2.0/x86_64-pc-linux-gnu -isystem$(GLIBC_ROOT)/include -I $(GCC_ROOT)/lib/gcc/x86_64-pc-linux-gnu/6.2.0/include  -I$(GCC_ROOT)/include -I/usr/include -I$(CURDIR)/include
 #    CXXFLAGS = -O3 -fopenmp -std=c++11 -ftree-vectorize -ffast-math -fopt-info-vec-optimized -isystem$(GLIBC_ROOT)/include -I$(CURDIR)/include
 #     -isystem /usr/include
-    LDFLAGS = -fopenmp -Wl,-rpath,$(GLIBC_ROOT)/lib -Wl,-dynamic-linker,$(GLIBC_ROOT)/lib/ld-linux-x86-64.so.2 -L$(GLIBC_ROOT)/lib -lm
-else
-    CXXFLAGS = -O3 -fopenmp -std=c++11 -ftree-vectorize -ffast-math -fopt-info-vec-optimized -I$(CURDIR)/include
-    LDFLAGS = -fopenmp -lm
+    LDFLAGS += -Wl,-rpath,$(GLIBC_ROOT)/lib -Wl,-dynamic-linker,$(GLIBC_ROOT)/lib/ld-linux-x86-64.so.2 -L$(GLIBC_ROOT)/lib
 endif
+
+LD_FLAGS += -lm
 
 FUNC = EXP_EXP
 SIMDWIDTH = 4
@@ -21,7 +24,7 @@ CXXFLAGS += -DBENCHMARK_FUNC_$(FUNC)
 CXXFLAGS += -DSIMD_WIDTH_LOGICAL_REAL64=$(SIMDWIDTH)
 CXXFLAGS += -DDEBUG
 
-BIN_DIR=$(CURDIR)/bin.gnu
+BIN_DIR=$(CURDIR)/bin.gnu.hsw
 
 # export all variables for subsequent make calls
 export

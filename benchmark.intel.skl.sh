@@ -3,9 +3,9 @@
 source benchmark.sh
 source benchmark_config.sh
 
-benchmark_config_knl
+benchmark_config_skl
 
-compiler=intel.knl
+compiler=intel.skl
 
 benchmark "${curdir}" "${n}" "${compiler}" "${simdwidths}" "${funcs}" "${threads}" "${executables}" "${versions}"
 
