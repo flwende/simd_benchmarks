@@ -3,7 +3,6 @@
 source benchmark.sh
 source benchmark_config.sh
 
-benchmark_config
 benchmark_config_knl
 
 compiler=clang.knl

@@ -32,7 +32,7 @@ function benchmark {
 		for func in $funcs
 		do
 			# build
-			${curdir}/build.${compiler}.sh FUNC=${func} SIMDWIDTH=${simdwidth} BIN_DIR=${bindir}
+			${curdir}/build.${compiler}.sh FUNC=${func} SIMDWIDTH=${simdwidth} BIN_DIR=${bindir} GLIBC_ROOT=${GLIBC_ROOT}
 			cd ${benchdir}
 
 			for executable in $executables
@@ -50,7 +50,7 @@ function benchmark {
 				done
 			done
 
-			cd ..
+			cd ${curdir}
 		done
     done
 }

@@ -16,13 +16,21 @@ function benchmark_config_no_intrin {
 	versions="reference explicit_vectorization enhanced_explicit_vectorization"
 }
 
+# 2x Intel Xeon E5-2630 v3 (Haswell, HSW, 2.4 Ghz, 8 cores * 2 Hyperthreads)
 function benchmark_config_hsw {
-	simdwidths="4 8"
-	threads="1 12 24"
+	simdwidths="4 8" # AVX2
+	threads="1 16 32"
 }
 
+# 1x Intel Xeon Phi 7210 (Knights Landing, KNL, 1.3 GHz, 64 cores, 4 Threads)
 function benchmark_config_knl {
-	simdwidths="8 16"
-	threads="1 64 68"
+	simdwidths="8 16" # AVX-512
+	threads="1 64 128" # max. 2 threads
+}
+
+# 2x	Intel Xeon Gold 6138 CPU (Skylake, SKL, 2.0 GHz, 20 cores, 2 Threads)
+function benchmark_config_skl {
+	simdwidths="8 16" # AVX-512
+	threads="1 40 80"
 }
 
