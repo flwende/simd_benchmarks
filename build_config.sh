@@ -36,8 +36,8 @@ function build_config_skl {
 
 function build_config_knl {
 	export VC_ROOT=${HOME}/Software/Vc
-	export VC_AVAILABLE=yes
-#	export VC_AVAILABLE=no
+#	export VC_AVAILABLE=yes
+	export VC_AVAILABLE=no
 
 	export VCL_ROOT=${HOME}/Software/vcl
 #	export VCL_AVAILABLE=yes
