@@ -13,6 +13,8 @@ CXXFLAGS += -DDEBUG
 
 LDFLAGS += -mmic
 
+CXXFLAGS_KERNEL = $(CXXFLAGS)
+
 BIN_DIR = $(CURDIR)/bin.intel.knc
 
 # export all variables for subsequent make calls

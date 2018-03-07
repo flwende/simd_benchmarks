@@ -13,6 +13,17 @@
 	#include <Vc/Vc>
 #endif
 
+#if defined(SIMD_CLASS_VCL)
+	#include <vectorclass.h>
+	#if defined(__MIC__) || defined(__AVX512F__)
+		using VCL_Vec = Vec8d;
+		using VCL_Mask = Vec8db;
+	#elif defined(__AVX__) || defined(__AVX2__)
+		using VCL_Vec = Vec4d;
+		using VCL_Mask = Vec4db;
+	#endif
+#endif
+
 #if defined(SIMD_CLASS_UMESIMD)
 	#include <UMESimd.h>
 	#if defined(__MIC__) || defined(__AVX512F__)
