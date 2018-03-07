@@ -67,11 +67,7 @@
 #endif
 
 // simdlen clause for OpenMP 4.x loop vectorization.
-#if defined(__INTEL_COMPILER)
-	#define SIMDLEN(X) simdlen(X)
-#else
-	#define SIMDLEN(X)
-#endif
+#define SIMDLEN(X) simdlen(X)
 
 #if defined(ENHANCED_EXPLICIT_VECTORIZATION) || defined(INTRINSICS)
 

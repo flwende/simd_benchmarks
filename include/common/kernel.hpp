@@ -100,18 +100,7 @@ void kernel_reference(const double& x_1, const double& x_2, double& y);
 
 #if defined(EXPLICIT_VECTORIZATION)
 	// kernel prototypes using OpenMP 4.x omp declare simd directive.
-	#if defined(__CLANG_COMPILER__)
-		// currently not supported by clang.
-	#elif defined(__INTEL_COMPILER)
-		// there is seemingly a bug with the Intel compiler 16.x that requires to use multiple
-		// linear and aligned clauses if there is more than one variable.
-		#pragma omp declare simd simdlen(SIMD_WIDTH_LOGICAL_REAL64) linear(x_1 : 1) linear(x_2 : 1) linear(y : 1) aligned(x_1 : ALIGNMENT) aligned(x_2 : ALIGNMENT) aligned(y : ALIGNMENT)
-	#else
-		// specifying the aligned clause gives a compile error with GNU compilers 5.x.
-		// the function definition, however, uses the aligned clause.
-		#pragma omp declare simd simdlen(SIMD_WIDTH_LOGICAL_REAL64) linear(x_1 : 1) linear(x_2 : 1) linear(y : 1)
-	#endif
-	// simd function definition works with pointer data types only when using the GNU compiler (Intel also can handle reference parameters)
+	#pragma omp declare simd simdlen(SIMD_WIDTH_LOGICAL_REAL64) linear(x_1 : 1) linear(x_2 : 1) linear(y : 1)
 	void kernel_explicit_vectorization(const double*__restrict__ x_1, const double*__restrict__ x_2, double*__restrict__ y);
 #elif defined(ENHANCED_EXPLICIT_VECTORIZATION)
 	// kernel using OpenMP 4.x directives in its body.

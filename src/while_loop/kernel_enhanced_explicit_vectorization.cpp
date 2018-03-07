@@ -19,11 +19,11 @@ void kernel_enhanced_explicit_vectorization(const vec_real64_t& x_1, const vec_r
 			y.x[ii] = 0.0;
 		lane_alife.x[ii] = temp_mask_0;
 	}
-	BOOL continue_loop = TRUE;
-	while (continue_loop != FALSE)
+	std::int32_t continue_loop = 1;
+	while (continue_loop)
 	{
-		continue_loop = FALSE;
-		#pragma omp simd SIMDLEN(SIMD_WIDTH_LOGICAL_REAL64)
+		continue_loop = 0;
+		#pragma omp simd SIMDLEN(SIMD_WIDTH_LOGICAL_REAL64) reduction(+ : continue_loop)
 		for (std::int32_t ii = 0; ii < SIMD_WIDTH_LOGICAL_REAL64; ++ii)
 		{
 			double temp_y = y.x[ii];
@@ -42,12 +42,7 @@ void kernel_enhanced_explicit_vectorization(const vec_real64_t& x_1, const vec_r
 				if (temp_y >= Y_STOP)
 					lane_alife.x[ii] = FALSE;
 				else
-				#if defined(__INTEL_COMPILER)
-					// conditional assignment. this does not work for GNU.
-					continue_loop = TRUE;
-				#else
-					continue_loop += TRUE;
-				#endif
+					continue_loop += 1;
 			}
 		}
 	}
