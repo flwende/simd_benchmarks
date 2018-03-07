@@ -14,6 +14,8 @@ CXXFLAGS += -DDEBUG
 
 LDFLAGS += -xcore-avx2
 
+CXXFLAGS_KERNEL = $(CXXFLAGS)
+
 BIN_DIR = $(CURDIR)/bin.intel.hsw
 
 # export all variables for subsequent make calls

@@ -14,6 +14,8 @@ CXXFLAGS += -DDEBUG
 
 LDFLAGS += -xmic-avx512
 
+CXXFLAGS_KERNEL = $(CXXFLAGS)
+
 BIN_DIR = $(CURDIR)/bin.intel.skl
 
 # export all variables for subsequent make calls

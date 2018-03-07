@@ -58,32 +58,32 @@ $(PREFIX)_simd_class_umesimd.x : $(PREFIX)_kernel_simd_class_umesimd.o $(PREFIX)
 
 
 $(PREFIX)_kernel_reference.o : kernel_reference.cpp
-	$(CXX) $(CXXFLAGS) -o $@ -c $<
-#	$(CXX) $(CXXFLAGS) -o $@.asm -S $<
+	$(CXX) $(CXXFLAGS_KERNEL) -o $@ -c $<
+#	$(CXX) $(CXXFLAGS_KERNEL) -o $@.asm -S $<
 
 $(PREFIX)_kernel_explicit_vectorization.o : kernel_explicit_vectorization.cpp
-	$(CXX) $(CXXFLAGS) -DEXPLICIT_VECTORIZATION -o $@ -c $<
-#	$(CXX) $(CXXFLAGS) -DEXPLICIT_VECTORIZATION -o $@.asm -S $<
+	$(CXX) $(CXXFLAGS_KERNEL) -DEXPLICIT_VECTORIZATION -o $@ -c $<
+#	$(CXX) $(CXXFLAGS_KERNEL) -DEXPLICIT_VECTORIZATION -o $@.asm -S $<
 
 $(PREFIX)_kernel_enhanced_explicit_vectorization.o : kernel_enhanced_explicit_vectorization.cpp
-	$(CXX) $(CXXFLAGS) -DENHANCED_EXPLICIT_VECTORIZATION -o $@ -c $<
-#	$(CXX) $(CXXFLAGS) -DENHANCED_EXPLICIT_VECTORIZATION -o $@.asm -S $<
+	$(CXX) $(CXXFLAGS_KERNEL) -DENHANCED_EXPLICIT_VECTORIZATION -o $@ -c $<
+#	$(CXX) $(CXXFLAGS_KERNEL) -DENHANCED_EXPLICIT_VECTORIZATION -o $@.asm -S $<
 
 $(PREFIX)_kernel_intrinsics.o : kernel_intrinsics.cpp
-	$(CXX) $(CXXFLAGS) -DINTRINSICS -o $@ -c $<
-#	$(CXX) $(CXXFLAGS) -DINTRINSICS -o $@.asm -S $<
+	$(CXX) $(CXXFLAGS_KERNEL) -DINTRINSICS -o $@ -c $<
+#	$(CXX) $(CXXFLAGS_KERNEL) -DINTRINSICS -o $@.asm -S $<
 
 $(PREFIX)_kernel_simd_class_vc.o : kernel_simd_class_vc.cpp
-	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_VC -I$(VC_ROOT)/include -o $@ -c $<
-#	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_VC -I$(VC_ROOT)/include -o $@.asm -S $<
+	$(CXX) $(CXXFLAGS_KERNEL) -DSIMD_CLASS_VC -I$(VC_ROOT)/include -o $@ -c $<
+#	$(CXX) $(CXXFLAGS_KERNEL) -DSIMD_CLASS_VC -I$(VC_ROOT)/include -o $@.asm -S $<
 
 $(PREFIX)_kernel_simd_class_umesimd.o : kernel_simd_class_umesimd.cpp
-	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_UMESIMD -I$(UMESIMD_ROOT) -o $@ -c $<
-#	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_UMESIMD -I$(UMESIMD_ROOT) -o $@.asm -S $<
+	$(CXX) $(CXXFLAGS_KERNEL) -DSIMD_CLASS_UMESIMD -I$(UMESIMD_ROOT) -o $@ -c $<
+#	$(CXX) $(CXXFLAGS_KERNEL) -DSIMD_CLASS_UMESIMD -I$(UMESIMD_ROOT) -o $@.asm -S $<
 
 $(PREFIX)_kernel_simd_class_vcl.o : kernel_simd_class_vcl.cpp
-	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_VCL -I$(VCL_ROOT) -o $@ -c $<
-#	$(CXX) $(CXXFLAGS) -DSIMD_CLASS_VCL -I$(VCL_ROOT) -o $@.asm -S $<
+	$(CXX) $(CXXFLAGS_KERNEL) -DSIMD_CLASS_VCL -I$(VCL_ROOT) -o $@ -c $<
+#	$(CXX) $(CXXFLAGS_KERNEL) -DSIMD_CLASS_VCL -I$(VCL_ROOT) -o $@.asm -S $<
 
 clean :
 	rm -f *.o *.x
