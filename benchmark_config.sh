@@ -2,7 +2,7 @@
 
 function benchmark_config {
 	curdir=`pwd`
-	n=8192
+	n=1048576
 	#funcs="SQRT_SQRT LOG_LOG EXP_EXP"
 	funcs="SQRT_SQRT EXP_EXP"
 	executables="simple conditional_math_call early_return nested_branching while_loop"
@@ -21,7 +21,8 @@ function benchmark_config_no_intrin {
 function benchmark_config_hsw {
 	benchmark_config
 	simdwidths="4 8" # AVX2
-	threads="1 16 32"
+#	threads="1 16 32"
+	threads="16"
 }
 
 # 1x Intel Xeon Phi 7210 (Knights Landing, KNL, 1.3 GHz, 64 cores, 4 Threads)
